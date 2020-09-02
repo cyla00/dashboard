@@ -1,0 +1,22 @@
+
+
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  background-image: url(../img/graph.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.container {
+  height: 90vh;
+}
+
+h1.d-flex.mt-5 {
+  font-size: 5rem; important!
+}
+
+#login{
+  font-size: 2rem;
+  text-decoration: blink;
+}

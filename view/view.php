@@ -1,0 +1,72 @@
+
+<?php
+
+include 'header.php'
+
+?>
+<body>
+  <div class="container d-flex flex-column h-90 w-auto">
+    <h1 class="d-flex mt-5 p-2">DASHBOARD</h1>
+    <div class="">
+     <!-- Button HTML (to Trigger Modal) -->
+     <a href="#myModal" class="trigger-btn" id="login" data-toggle="modal">Click to Open Login Panel</a>
+    </div>
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+     <div class="modal-dialog modal-login">
+    	 <div class="modal-content">
+    		 <div class="modal-header">
+    			 <div class="avatar">
+    				 <img src="view/img/avatar-admin.jpeg" alt="admin">
+    			 </div>
+    			 <h4 class="modal-title">Member Login</h4>
+    			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    		 </div>
+    		 <div class="modal-body">
+    			 <form action="" method="post">
+    				 <div class="form-group">
+    					 <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+    				 </div>
+    				 <div class="form-group">
+    					 <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+    				 </div>
+    				 <div class="form-group">
+    					 <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+    				 </div>
+    			 </form>
+    		 </div>
+    		 <div class="modal-footer">
+    			 <a href="#forgotpassword" class="trigger-btn" id="login" data-toggle="modal">Forgot Password?</a>
+    		 </div>
+    	 </div>
+     </div>
+    </div>
+    <div id="forgotpassword" class="modal fade">
+     <div class="modal-dialog modal-login">
+       <div class="modal-content">
+         <div class="modal-header">
+           <div class="avatar">
+             <img src="view/img/avatar-admin.jpeg" alt="admin">
+           </div>
+           <h4 class="modal-title">Forgot password</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         </div>
+         <div class="modal-body">
+           <form action="" method="post">
+             <div class="form-group">
+               <input type="text" class="form-control" name="email" placeholder="email" required="required">
+             </div>
+             <div class="form-group">
+               <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">sent</button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+    </div>
+
+  </div>
+
+<?php
+include 'footer.php';
+?>
