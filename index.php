@@ -9,8 +9,8 @@ require 'controller/controller.php';
 
  if (isset($_GET['action'])){
 
-   if ($_GET['action'] == ''){
-
+   if ($_GET['action'] == 'page'){
+     require ('view/pageView.php');
    }
 } else {
   require ('view/view.php');
