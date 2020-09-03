@@ -18,7 +18,11 @@ function reg_err(){
       exit();
     }
     else if($registerCheck == "success"){
-      echo "<p class='reg_error'>successfully registered!</p>";
+      echo "<p class='reg_success'>successfully registered!</p>";
+      exit();
+    }
+    else if($registerCheck == "exists"){
+      echo "<p class='reg_error'>email already exists!</p>";
       exit();
     }
   }

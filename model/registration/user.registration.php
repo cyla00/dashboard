@@ -55,13 +55,23 @@ class Registration{
               exit();
             }
             else{
-              if(true){
+              $reg_conn = new Connection();
+              $conn = $reg_conn->connect();
+
+              $sql_check = "SELECT user_email FROM user WHERE user_email=:email";
+              $prep = $conn->prepare($sql_check);
+              $prep->execute([':email'=>$this->email]);
+              $count = $prep->fetch();
+
+              if($count > 0){
+                echo "<p class='reg_success'>user already exists!</p>";
+                header('Location: index.php?register=exists');
+                $conn->close();
+              }
+              else{
                 $hashed_pwd = password_hash($this->password, PASSWORD_DEFAULT);
-                $reg_conn = new Connection();
 
                 $sql = "INSERT INTO user (user_nom, user_prenom, user_email, user_password) VALUES (:first_name, :last_name, :email, :password)";
-
-                $conn = $reg_conn->connect();
                 $prep = $conn->prepare($sql);
                 $prep->execute([
                     ':first_name' => $this->first_name,
