@@ -17,7 +17,7 @@ class Registration{
     $this->register = $register;
   }
 
-  public static function reg(){ //PUT FORM IMPUT ELEMENTS
+  public static function reg(){ //REGISTRATION FORM IMPUT ELEMENTS
     $first = $_POST['first_name'];
     $last = $_POST['last_name'];
     $mail = $_POST['email'];
@@ -58,12 +58,6 @@ class Registration{
               if(true){
                 $hashed_pwd = password_hash($this->password, PASSWORD_DEFAULT);
                 $reg_conn = new Connection();
-
-                // $sql = "INSERT INTO user WHERE user_prenom=$this->first_name AND user_nom=$this->last_name AND user_email=$this->email AND user_password=$hashed_pwd)";
-                //
-                // $conn = $reg_conn->connect();
-                // $prep = $conn->query($sql);
-                // $prep->execute();
 
                 $sql = "INSERT INTO user (user_nom, user_prenom, user_email, user_password) VALUES (:first_name, :last_name, :email, :password)";
 
