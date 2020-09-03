@@ -18,7 +18,7 @@ function reg_err(){
       exit();
     }
     else if($registerCheck == "success"){
-      echo "<p class='reg_success'>Registration successfull!</p>";
+      echo "<p class='reg_error'>successfully registered!</p>";
       exit();
     }
   }

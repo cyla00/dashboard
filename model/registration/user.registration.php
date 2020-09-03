@@ -45,14 +45,46 @@ class Registration{
           exit();
         }
         else{
-          if($this->password != $this->re_password){
-            echo "<p class='error'>password don't match!</p>";
+          if(strlen($this->password) < 8){
+            echo "<p class='error'>please choose a password longer than 8 carachters!</p>";
             exit();
           }
           else{
-            if(true){
-              header('Location: index.php?register=success');
-              echo "<script>window.alert('success')</script>";
+            if($this->password != $this->re_password){
+              echo "<p class='error'>password don't match!</p>";
+              exit();
+            }
+            else{
+              if(true){
+                $hashed_pwd = password_hash($this->password, PASSWORD_DEFAULT);
+                $reg_conn = new Connection();
+
+                // $sql = "INSERT INTO user WHERE user_prenom=$this->first_name AND user_nom=$this->last_name AND user_email=$this->email AND user_password=$hashed_pwd)";
+                //
+                // $conn = $reg_conn->connect();
+                // $prep = $conn->query($sql);
+                // $prep->execute();
+
+                $sql = "INSERT INTO user (user_nom, user_prenom, user_email, user_password) VALUES (:first_name, :last_name, :email, :password)";
+
+                $conn = $reg_conn->connect();
+                $prep = $conn->prepare($sql);
+                $prep->execute([
+                    ':first_name' => $this->first_name,
+                    ':last_name' => $this->last_name,
+                    ':email' => $this->email,
+                    ':password' => $hashed_pwd,
+                ]);
+
+                if(true){
+                  echo "<p class='reg_success'>Registration successfull!</p>";
+                }
+                else{
+                  echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                header('Location: index.php?register=success');
+                $prep->close();
+              }
             }
           }
         }
