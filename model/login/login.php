@@ -24,10 +24,14 @@
 
       $log_prep = $conn->prepare($log_check);
       $log_prep->execute([':email'=>$this->login_email]);
-      $dump = $log_prep->fetch();
-      $pass_check = password_verify($this->login_password, $dump[0]);
+      $dump = $log_prep->fetch(PDO::FETCH_OBJ);
 
-      if($pass_check == true){
+      $pass_check = password_verify($this->login_password, $dump->user_password);
+
+      if(empty($this->login_password)){
+        header('Location: index.php?login=empty');
+      }
+      else if($pass_check == true){
         header('Location: index.php?login=success');
       }
       else{
