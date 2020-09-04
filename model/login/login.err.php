@@ -5,10 +5,13 @@
     }
     else{
       $login_error = $_GET['login'];
-      if($login_error == 'invalid'){
+      if($login_error == 'fail'){
         echo "<p class='reg_error'>invalid user!</p>";
-        header('Location: index.php'.$_SERVER[REQUEST_URI]);
+        header('Location: index.php');
         exit();
+      }
+      else{
+        echo "<p class='reg_error'>logged in!</p>";
       }
     }
   }
