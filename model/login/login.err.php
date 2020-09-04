@@ -1,13 +1,14 @@
 <?php
   function log_err(){
-    if(!isset($_GET['login_btn'])){
+    if(!isset($_GET['login'])){
       exit();
     }
     else{
       $login_error = $_GET['login'];
-      if($login_error === 'invalid'){
+      if($login_error == 'invalid'){
         echo "<p class='reg_error'>invalid user!</p>";
-        die();
+        header('Location: index.php'.$_SERVER[REQUEST_URI]);
+        exit();
       }
     }
   }

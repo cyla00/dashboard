@@ -33,7 +33,6 @@ require "./model/login/login.err.php";
         if(isset($_POST['login_btn'])){
           Login::log()->check();
         }
-        log_err();
          ?>
       </form>
 
