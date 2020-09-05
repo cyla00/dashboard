@@ -21,7 +21,7 @@ class Users extends MODEL {
   }
 
   public function insert_data() {
-    $this->query("INSERT INTO $this->table  VALUES (1,'Alexa','kangourou', 'a.vermenot@codeur.online'),(2,'Ismail','kangourou', 'i.khayam'),(3,'Robin','kangourou', 'r.demarch@codeur.online')");
+    $this->query("INSERT INTO $this->table  VALUES (1,'Alexa','md5('kangourou')', 'a.vermenot@codeur.online'),(2,'Ismail','md5('kangourou')', 'i.khayam'),(3,'Robin','md5('kangourou')', 'r.demarch@codeur.online')");
   }
 
   public function add($username) {
