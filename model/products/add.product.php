@@ -64,11 +64,15 @@ class AddProduct{
       ':manuel' => $this->login_manuel
     ]);
 
-    if(true){
-      echo "<p class='reg_success'>product added successfull!</p>";
-    }
-    else{
-      echo "<p class='reg_success'>a problem occurred!</p>";
-    }
+    // if(empty($this->login_id)||empty($this->login_nom)||empty($this->login_referance)||empty($this->login_categorie)||empty($this->login_AchaDate)||empty($this->login_FinGarantDate)||empty($this->login_prix)||empty($this->login_ticket)||empty($this->login_zoneEntretien)||empty($this->login_LieuxAchat)||empty($this->login_manuel)){
+    //
+    // }
+    //
+    // if(true){
+    //   echo "<p class='reg_success'>product added successfull!</p>";
+    // }
+    // else{
+    //   echo "<p class='reg_success'>a problem occurred!</p>";
+    // }
   }
 }

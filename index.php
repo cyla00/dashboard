@@ -66,6 +66,7 @@ require './model/products/add.product.php';
       if(isset($_POST['register'])){
         Registration::reg()->check();
       }
+      reg_err();
        ?>
     </div>
 
