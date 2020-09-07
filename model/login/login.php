@@ -9,11 +9,15 @@
     }
 
     public static function log(){
+      $log_email = $_POST['log_email'];
+      $log_password = $_POST['log_password'];
+
       $login = new Login($log_email, $log_password);
       return $login;
     }
 
     public function check(){
+
       $log_conn = new Connection();
       $conn = $log_conn->connect();
       session_start();  //TO DELETE IF CONTROLLER MANAGES
@@ -38,10 +42,10 @@
         $role_dump = $role_prep->fetch(PDO::FETCH_NUM);
 
         if($role_dump[0] == 'user'){
-          header('Location: index.php?login=success&user=user');
+          header('Location: produitsView.php?login=success&user=user');
         }
         else{
-          header('Location: index.php?login=success&user=admin');
+          header('Location: produitsView.php?login=success&user=admin');
         }
       }
       else{

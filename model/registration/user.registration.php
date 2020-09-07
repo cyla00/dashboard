@@ -20,10 +20,10 @@ class Registration{
   public static function reg(){ //REGISTRATION FORM IMPUT ELEMENTS
     $first = $_POST['first_name'];
     $last = $_POST['last_name'];
-    $mail = $_POST['email'];
-    $pwd = $_POST['password'];
-    $repwd = $_POST['re_password'];
-    $sub = $_POST['register'];
+    $mail = $_POST['reg_email'];
+    $pwd = $_POST['reg_password'];
+    $repwd = $_POST['reg_repeatpassword'];
+    $sub = $_POST['registerBtn'];
 
     $load_reg = new Registration($first, $last, $mail, $pwd, $repwd, $sub);
     return $load_reg;
