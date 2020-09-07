@@ -35,9 +35,9 @@ include 'headerac.php';
     			 </form>
     		 </div>
     		 <div class="modal-footer">
-           <a href="#registred" class="trigger-btn" id="login" data-toggle="modal">Registred?</a><br>
-    			 <a href="#forgotpassword" class="trigger-btn" id="login" data-toggle="modal">Forgot Password?</a><br>
-           <a href="#changepassword" class="trigger-btn" id="login" data-toggle="modal">Change Password?</a><br>
+           <a href="#registred" class="trigger-btn" data-toggle="modal">Registred?</a><br>
+    			 <a href="#forgotpassword" class="trigger-btn" data-toggle="modal">Forgot Password?</a><br>
+           <a href="#changepassword" class="trigger-btn" data-toggle="modal">Change Password?</a><br>
     		 </div>
     	 </div>
      </div>
