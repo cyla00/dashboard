@@ -1,0 +1,88 @@
+
+
+@font-face {
+    font-family: 'Simply Rounded';
+    src: url('../fonts/Simply Rounded.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'coolvetica crammed';
+    src: url('../fonts/coolvetica crammed rg.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+body{
+  font-family: 'Simply Rounded' normal !important;
+  font-size: 1.2rem;
+}
+
+a{
+  color : black;
+}
+
+/* scrollbar custom */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 8px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 8px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+/* Style the header */
+.header {
+  background: #ee5959;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100% */
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+
+.top-container {
+  background-color: #f1f1f1;
+
+}
+
+jumbotron{
+  font-size: 2rem;
+}
+/* affichage */
+
+td.w-50.text-center,
+.table-bordered td{
+  border : none;
+}
+
+td, th{
+  text-align: center;
+}
+
+td.col-6{
+  text-align: left;
+}
