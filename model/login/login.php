@@ -8,18 +8,15 @@
       $this->login_password = $login_password;
     }
 
-    public static function log(){ //LOGIN FORM IMPUT ELEMENTS
-      $log_email = $_POST['log_email'];
-      $log_password = $_POST['log_password'];
-
+    public static function log(){
       $login = new Login($log_email, $log_password);
       return $login;
     }
 
     public function check(){
-      $reg_conn = new Connection();
-      $conn = $reg_conn->connect();
-      session_start();
+      $log_conn = new Connection();
+      $conn = $log_conn->connect();
+      session_start();  //TO DELETE IF CONTROLLER MANAGES
 
       $log_check = "SELECT user_password FROM user WHERE user_email=:email";
 
@@ -41,11 +38,9 @@
         $role_dump = $role_prep->fetch(PDO::FETCH_NUM);
 
         if($role_dump[0] == 'user'){
-          echo "not admin";
           header('Location: index.php?login=success&user=user');
         }
         else{
-          echo "admin";
           header('Location: index.php?login=success&user=admin');
         }
       }
