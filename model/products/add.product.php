@@ -63,7 +63,5 @@ class AddProduct{
       ':lieuxAchat' => $this->login_LieuxAchat,
       ':manuel' => $this->login_manuel
     ]);
-
-
   }
 }
