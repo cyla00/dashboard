@@ -1,9 +1,6 @@
 
 <?php
 include 'headerac.php';
-require './model/login/change.password.php';
-require './model/login/login.php';
-require './model/connection.php';
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">

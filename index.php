@@ -3,31 +3,35 @@
 require 'controller/controller.php';
 
 // affichage accueil
+try {
 
- if (isset($_GET['action'])){
+    if (isset($_GET['action'])){
 
-   if ($_GET['action'] == 'produits'){
-     $title = "Liste des produits";
-     require ('view/produitsView.php');
-   }
-   if ($_GET['action'] == 'produit'){
-     // $title = $value['nom_produit'];
-     $title = "Nom Produit";
-     require ('view/produitView.php');
-   }
-   if ($_GET['action'] == 'add'){
-     $title = "Nouveau Produit";
-     require ('./view/templateView.php');
-   }
-   if ($_GET['action'] == 'edit'){
-     $title = "Nom Produit";
-     require ('view/templateView.php');
-   }
-   if ($_GET['action'] == 'setting'){
-     $title = "Setting";
-     require ('view/settingView.php');
-   }
-} else {
-  require ('view/accueilView.php');
+       if ($_GET['action'] == 'produits'){
+         listProducts();
+       }
+       if ($_GET['action'] == 'produit'){
+         singleProduct();
+       }
+       if ($_GET['action'] == 'add'){
+         addProduct();
+       }
+       if ($_GET['action'] == 'edit'){
+         editProduct();
+       }
+       if ($_GET['action'] == 'setting'){
+         settings();
+       }
+       else {
+         throw new Exception("Nous avons pas pu accéder à votre demande", 1);
+       }
+    }
+
+    else {
+      accueil();
+    }
+}
+catch (\Exception $e) {
+  die('Erreur : ' . $e->getMessage());
 }
 ?>
