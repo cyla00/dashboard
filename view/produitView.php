@@ -3,7 +3,7 @@
 include 'header.php';
 ?>
 
-<div class="container-fluid m-0 p-0">
+<div class="container-fluid content m-0 p-0">
   <div class="jumbotron shadow-lg p-4 mb-4 bg-white">
     <!-- <?php echo $value['category'] ?>
     <?php echo $value['date_achat'] ?>

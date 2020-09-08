@@ -24,6 +24,10 @@ require 'controller/controller.php';
      $title = "Nom Produit";
      require ('view/templateView.php');
    }
+   if ($_GET['action'] == 'setting'){
+     $title = "Setting";
+     require ('view/settingView.php');
+   }
 } else {
   require ('view/accueilView.php');
 }

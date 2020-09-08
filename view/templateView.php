@@ -9,7 +9,7 @@ include 'header.php';
  <h1 class= text-center>Nouveau produit</h1>
 </div> -->
 
-<div class="container form h-80 justify-content-center align-items-center border">
+<div class="container form content h-80 justify-content-center align-items-center border">
 <!-- enctype="multipart/form-data" -->
     <form action="" method="post" class="col-lg-12 col-sm-12 row p-5" >
       <div class="col-lg-6 col-sm-12">
@@ -23,7 +23,16 @@ include 'header.php';
         </div>
         <div class="form-group col-lg-8 col-sm-12">
         <label for="cat">Categorie:</label>
-        <input type="text" id="cat" class="form-control" placeholder="Entrer la categie" name="category">
+        <!-- <input type="text" id="cat" class="form-control" placeholder="Entrer la categorie" name="category"> -->
+        <select class="form-control"name="category" id="cat">
+               <option value="">Sélectionner la Categorie :</option>
+               <option value="ref1">Multimédia</option>
+               <option value="ref2">Téléphonie</option>
+               <option value="ref3">Petit électroménager</option>
+               <option value="ref4">Electroménager</option>
+               <option value="ref5">Voiture</option>
+               <option value="ref6">Voiture</option>
+         </select>
         </div>
         <div class="form-group col-lg-8 col-sm-12">
         <label for="prix">Prix:</label>
