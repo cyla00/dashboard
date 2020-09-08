@@ -1,12 +1,15 @@
 
 <?php
 include 'headerac.php';
+<<<<<<< HEAD
 require './model/login/change.password.php';
 require './model/login/login.php';
 require './model/connection.php';
 require './model/products/listAll.product.php';
 
 ListAllProduct::list_instance()->list();
+=======
+>>>>>>> a4bed7a5b48106f0db12244fe8d1e7c189a50a06
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">
