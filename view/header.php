@@ -27,10 +27,18 @@ if (isset($_SESSION) === false) {
   <div class="col-lg-6 col-sm-6">Bonjour UTILISATEUR , votre statut est admin/user</div>
   <div class="col-lg-6 col-sm-6">
     <a href="index.php?action=produits" alt="retour">Retour<i class="fas fa-level-up-alt fa-2x p-2"></i></a>
-    <a href="" alt="disconnect">Disconnect<i class="fas fa-sign-out-alt fa-2x p-2"></i></a>
+
+    <a href="index.php?stat=exit" alt="disconnect">Disconnect<i class="fas fa-sign-out-alt fa-2x p-2"></i></a>
+
   </div>
 </div>
 
+  <?php
+if(isset($_GET['stat'])){
+  require "./model/login/logout.php";
+  logout();
+}
+   ?>
 
 <div class="header py-5" id="header">
  <h1 class= text-center><?php echo $title; ?></h1>

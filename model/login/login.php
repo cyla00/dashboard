@@ -42,15 +42,15 @@
         $role_dump = $role_prep->fetch(PDO::FETCH_NUM);
 
         if($role_dump[0] == 'user'){
-          header('Location: ./view/produitsView.php?login=success&user=user');
+          header('Location: index.php?&action=produits');
         }
         else{
-          header('Location: ./view/produitsView.php?login=success&user=admin');
+          header('Location: index.php?&action=produits');
         }
       }
       else{
         session_destroy();
-        header('Location: ./view/accueilView.php?login=fail');
+        echo "failed to connect";
       }
     }
   }

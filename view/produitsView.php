@@ -3,7 +3,6 @@
 <?php
 
 include 'header.php';
-
 ?>
  <div class="container content">
      <div class="bs-bars pull-left">

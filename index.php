@@ -1,5 +1,4 @@
 
-
 <?php
 require 'controller/controller.php';
 
@@ -18,7 +17,7 @@ require 'controller/controller.php';
    }
    if ($_GET['action'] == 'add'){
      $title = "Nouveau Produit";
-     require ('view/templateView.php');
+     require ('./view/templateView.php');
    }
    if ($_GET['action'] == 'edit'){
      $title = "Nom Produit";
