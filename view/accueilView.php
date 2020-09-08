@@ -4,6 +4,7 @@ include 'headerac.php';
 require './model/login/change.password.php';
 require './model/login/login.php';
 require './model/connection.php';
+require './model/registration/user.registration.php';
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">
@@ -150,6 +151,11 @@ require './model/connection.php';
        </div>
      </div>
     </div>
+    <?php
+    if(isset($_POST['registerBtn'])){
+      Registration::reg()->check();
+    }
+    ?>
   </div>
 
 <?php
