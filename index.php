@@ -3,8 +3,6 @@
 <?php
 require 'controller/controller.php';
 
-
-
 // affichage accueil
 
  if (isset($_GET['action'])){
@@ -29,3 +27,4 @@ require 'controller/controller.php';
 } else {
   require ('view/accueilView.php');
 }
+?>

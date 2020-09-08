@@ -35,7 +35,7 @@ class ChangePassword{
 
       if($pass_check == true && $this->change_newPass == $this->change_repeatNew){
 
-        $crypted_newPass = password_hash($this->change_repeatNew, PASSWORD_DEFAULT );
+        $crypted_newPass = password_hash($this->change_repeatNew, PASSWORD_DEFAULT);
         $chng_sql_push = "UPDATE user SET user_password=:chng_pass WHERE user_email=:chng_email";
 
         $pass_update = $conn->prepare($chng_sql_push);
@@ -43,10 +43,10 @@ class ChangePassword{
           ':chng_pass' => $crypted_newPass,
           ':chng_email' => $this->change_email
         ]);
-        echo "<p class='reg_success'>password updated successfully!</p>";
+        echo "<p class='chng_success'>password changed!</p>";
       }
       else{
-        echo "<p class='reg_error'>password too short or invalid!</p>";
+        echo "<p class='chng_fail'>changement failed!</p>";
       }
     }
   }

@@ -20,7 +20,7 @@
 
       $log_conn = new Connection();
       $conn = $log_conn->connect();
-      session_start();  //TO DELETE IF CONTROLLER MANAGES
+      // session_start();  //TO DELETE IF CONTROLLER MANAGES
 
       $log_check = "SELECT user_password FROM user WHERE user_email=:email";
 
@@ -42,14 +42,15 @@
         $role_dump = $role_prep->fetch(PDO::FETCH_NUM);
 
         if($role_dump[0] == 'user'){
-          header('Location: produitsView.php?login=success&user=user');
+          header('Location: ./view/produitsView.php?login=success&user=user');
         }
         else{
-          header('Location: produitsView.php?login=success&user=admin');
+          header('Location: ./view/produitsView.php?login=success&user=admin');
         }
       }
       else{
-        header('Location: index.php?login=fail');
+        session_destroy();
+        header('Location: ./view/accueilView.php?login=fail');
       }
     }
   }

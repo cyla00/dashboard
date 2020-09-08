@@ -1,14 +1,19 @@
 
 <?php
-
 include 'headerac.php';
+require './model/login/change.password.php';
+require './model/login/login.php';
+require './model/login/login.err.php';
+require './model/connection.php';
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">
 
   <h1 class="d-flex mt-5 p-2">DASHBOARD</h1>
    <!-- Button HTML (to Trigger Modal) -->
-   <a href="#" class="trigger-btn m-0 p-5" id="login" data-toggle="modal">Login<i class="fas fa-key fa-x3 ml-2"></i></a>
+
+   <a href="#myModal" class="trigger-btn m-0 p-5" id="login" data-toggle="modal">Login<i class="fas fa-key fa-x3 ml-2"></i></a>
+
     <!-- Modal HTML -->
     <div id="myModal" class="modal fade">
      <div class="modal-dialog modal-login modal-lg modal-sm modal-xs">
@@ -42,7 +47,11 @@ include 'headerac.php';
     	 </div>
      </div>
     </div>
-
+    <?php
+    if(isset($_POST['loginBtn'])){
+      Login::log()->check();
+    }
+     ?>
     <!-- forgotpassword -->
     <div id="forgotpassword" class="modal fade">
      <div class="modal-dialog modal-login modal-lg modal-sm modal-xs">
@@ -101,7 +110,11 @@ include 'headerac.php';
        </div>
      </div>
     </div>
-
+    <?php
+    if(isset($_POST['changeBtn'])){
+      ChangePassword::change_instance()->check();
+    }
+     ?>
     <!-- registred -->
     <div id="registred" class="modal fade">
      <div class="modal-dialog modal-login modal-lg modal-sm modal-xs">
