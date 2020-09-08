@@ -19,5 +19,7 @@ class DeleteProduct{
     $del_sql = "DELETE * FROM produit WHERE id_produit=:id";
     $del_prep = $conn->prepare($del_sql);
     $del_prep->execute([':id' => $this->del_product_id]);
+
+    //besoin de faire afficher l' ID du produit en question dans l url pour le $_GET
   }
 }
