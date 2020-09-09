@@ -13,7 +13,7 @@ class ListAllProduct{
     $list_sql = "SELECT * FROM produit";
     $result = $conn->prepare($list_sql);
     $result->execute();
-    $fetch = $result->fetch(PDO::FETCH_ASSOC);
+    return $result;
 
     //example pour lister les elements row:
 

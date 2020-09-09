@@ -1,10 +1,7 @@
 
 <?php
 include 'headerac.php';
-require './model/login/change.password.php';
-require './model/login/login.php';
-require './model/connection.php';
-require './model/products/listAll.product.php';
+
 
 ListAllProduct::list_instance()->list();
 ?>
@@ -153,6 +150,11 @@ ListAllProduct::list_instance()->list();
        </div>
      </div>
     </div>
+    <?php
+    if(isset($_POST['registerBtn'])){
+      Registration::reg()->check();
+    }
+    ?>
   </div>
 
 <?php

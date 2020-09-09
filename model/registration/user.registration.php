@@ -86,7 +86,7 @@ class Registration{
                 else{
                   echo "Error: " . $sql . "<br>" . $conn->error;
                 }
-                header('Location: index.php?register=success');
+                
                 $prep->close();
               }
             }

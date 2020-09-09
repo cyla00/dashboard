@@ -1,6 +1,8 @@
 <?php
+require 'model/connection.php';
+
 function listProducts(){
-  require 'dashboard/model/products/list.product.php';
+  require 'model/products/listAll.product.php';
   $title = "Liste des produits";
   require ('view/produitsView.php');
 }
@@ -9,12 +11,12 @@ function singleProduct(){
   require ('view/produitView.php');
 }
 function addProduct(){
-  require 'dashboard/model/products/add.product.php';
+  require 'model/products/add.product.php';
   $title = "Nouveau Produit";
   require ('view/templateView.php');
 }
 function editProduct(){
-  require 'dashboard/model/products/add.product.php';
+  require 'model/products/add.product.php';
   $title = "Nom Produit";
   require ('view/templateView.php');
 }
@@ -25,7 +27,9 @@ function settings(){
 function accueil(){
   require 'model/login/change.password.php';
   require 'model/login/login.php';
-  require 'model/connection.php';
+  require 'model/registration/registration.err.php';
+  require 'model/registration/user.registration.php';
+  require 'model/products/listAll.product.php';
   require ('view/accueilView.php');
 }
 ?>
