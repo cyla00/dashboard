@@ -1,6 +1,12 @@
 
 <?php
 include 'headerac.php';
+require './model/login/change.password.php';
+require './model/login/login.php';
+require './model/connection.php';
+require './model/products/listAll.product.php';
+
+ListAllProduct::list_instance()->list();
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">
@@ -87,16 +93,16 @@ include 'headerac.php';
          <div class="modal-body">
            <form action="" method="post">
              <div class="form-group">
-               <input type="text" class="form-control" name="change_email" placeholder="email" required="required">
+               <input type="text" class="form-control" name="chng_email" placeholder="email" required="required">
              </div>
              <div class="form-group">
-    					 <input type="password" class="form-control" name="change_password" placeholder="Actual password" required="required">
+    					 <input type="password" class="form-control" name="chng_password" placeholder="Actual password" required="required">
     				 </div>
              <div class="form-group">
-    					 <input type="password" class="form-control" name="change_newpassword" placeholder="New password" required="required">
+    					 <input type="password" class="form-control" name="chng_newpassword" placeholder="New password" required="required">
     				 </div>
              <div class="form-group">
-    					 <input type="password" class="form-control" name="change_repeatnewpassword" placeholder="Repeat new password" required="required">
+    					 <input type="password" class="form-control" name="chng_repeatnewpassword" placeholder="Repeat new password" required="required">
     				 </div>
              <div class="form-group">
                <button type="submit" class="btn btn-primary btn-lg btn-block login-btn" name="changeBtn">sent</button>
