@@ -37,12 +37,11 @@ include 'header.php';
     </tr>
   </thead>
   <tbody>
-    <tr>
+
       <?php
-      $list = New ListAllProduct();
-      $result = $list->list();
       while ($donnees = $result->fetch()){ ?>
-         <td class='text-center'><a href="index.php?action=produit&id=$value['id_produit']" ><i class="fas fa-info-circle fa-2x"></i></a></td>
+        <tr>
+        <td class='text-center'><a href="index.php?action=produit&id=$value['id_produit']" ><i class="fas fa-info-circle fa-2x"></i></a></td>
         <td><?php echo $donnees['id_produit'] ?></td>
         <td><?php echo $donnees['nom_produit'] ?></td>
         <td><?php echo $donnees['categorie_produit'] ?></td>
@@ -54,8 +53,9 @@ include 'header.php';
          <td><a href="index.php?action=edit&id=5"><i class="fas fa-edit fa-2x"></i></a></td>
         <td><a href="index.php?action=delete&id=5"><i class="fas fa-trash-alt fa-2x"></i></a>
         </td>
+        </tr>
       <?php } ?>
-    </tr>
+
     <tr class="text-center">
         <td class="col-1"><a href="index.php?action=produit&id=5"><i class="fas fa-info-circle fa-2x"></i></a></td>
         <td class="col-1">5</td>

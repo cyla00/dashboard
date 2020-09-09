@@ -4,6 +4,8 @@ require 'model/connection.php';
 function listProducts(){
   require 'model/products/listAll.product.php';
   $title = "Liste des produits";
+  $list = New ListAllProduct();
+  $result = $list->list();
   require ('view/produitsView.php');
 }
 function singleProduct(){

@@ -10,16 +10,16 @@ try {
        if ($_GET['action'] == 'produits'){
          listProducts();
        }
-       if ($_GET['action'] == 'produit'){
+       elseif ($_GET['action'] == 'produit'){
          singleProduct();
        }
-       if ($_GET['action'] == 'add'){
+       elseif ($_GET['action'] == 'add'){
          addProduct();
        }
-       if ($_GET['action'] == 'edit'){
+       elseif ($_GET['action'] == 'edit'){
          editProduct();
        }
-       if ($_GET['action'] == 'setting'){
+       elseif ($_GET['action'] == 'setting'){
          settings();
        }
        else {
