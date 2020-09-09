@@ -10,7 +10,7 @@ function role_check(){
     'email' => $_SESSION['logged_email']
   ));
   $role_result = $role_prep->fetch();
-  
+   
   if ($role_result['admin_role'] == 0) {
     $role_user = "User";
   }

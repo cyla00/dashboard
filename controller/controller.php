@@ -24,7 +24,13 @@ function addProduct(){
   $title = "Nouveau Produit";
   require ('view/templateView.php');
 }
+function deleteProduct(){
+  require 'model/products/delete.product.php';
+  $title = "Nouveau Produit";
+  require ('view/templateView.php');
+}
 function editProduct(){
+
   require 'model/products/add.product.php';
   $title = "Nom Produit";
   require ('view/templateView.php');
