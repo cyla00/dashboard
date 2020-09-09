@@ -27,7 +27,7 @@ if (isset($_SESSION) === false) {
   <div class="col-lg-6 col-sm-6"> Bonjour
     <!-- <?php echo $_SESSION['name'] ?> -->
      , votre statut est
-     <!-- <?php echo $_GET['role'] ?> -->
+     <!-- <?php echo $role_result ?> -->
    </div>
   <div class="col-lg-6 col-sm-6">
     <?php if (($_GET['action'] == 'produit') || ($_GET['action'] == 'setting') || ($_GET['action'] == 'add') || ($_GET['action'] == 'edit')): ?>
