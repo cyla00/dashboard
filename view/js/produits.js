@@ -16,22 +16,22 @@ function displayChange() {
 
 //filtre
 
-function deselect(value){
-  //document.getElementsByClassName('table').childNodes[value].style.display = 'none';
-  // table = document.getElementsByClassName('table');
-  // table.childNodes[value].style.display = 'none';
-
-var v = document.getElementById('listtable').childNodes[value];
-var w = document.getElementById('cardtable').childNodes[value];
-
-if(v.style.display === "" && w.style.display === ""){
-  v.style.display === "none";
-  w.style.display === "none";
-} else {
-  v.style.display === "";
-  w.style.display === "";
-}
-}
+// function deselect(value){
+//   //document.getElementsByClassName('table').childNodes[value].style.display = 'none';
+//   // table = document.getElementsByClassName('table');
+//   // table.childNodes[value].style.display = 'none';
+//
+// var v = document.getElementById('listtable').childNodes[value];
+// var w = document.getElementById('cardtable').childNodes[value];
+//
+// if(v.style.display === "" && w.style.display === ""){
+//   v.style.display === "none";
+//   w.style.display === "none";
+// } else {
+//   v.style.display === "";
+//   w.style.display === "";
+// }
+// }
 // document.getElementById('listtable').childNodes[value].style.display = 'none';
 // document.getElementById('cardtable').childNodes[value].style.display = 'none';
 

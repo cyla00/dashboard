@@ -6,6 +6,7 @@ require 'controller/controller.php';
 
  if (isset($_GET['action'])){
 
+
    if ($_GET['action'] == 'produits'){
      $title = "Liste des produits";
      require ('view/produitsView.php');
