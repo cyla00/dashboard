@@ -1,5 +1,12 @@
 <?php
+if (isset($_SESSION) === false) {
+  session_start();
+}
+
 require 'model/connection.php';
+require 'model/login/role.check.php';
+$role = role_check();
+
 
 function listProducts(){
   require 'model/products/listAll.product.php';

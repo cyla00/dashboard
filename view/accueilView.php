@@ -1,9 +1,9 @@
 
 <?php
+
 include 'headerac.php';
 
 
-ListAllProduct::list_instance()->list();
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">
