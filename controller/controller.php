@@ -22,6 +22,7 @@ function addProduct(){
   $title = "Nouveau Produit";
   require ('view/templateView.php');
 }
+
 function deleteProduct(){
   require 'model/products/delete.product.php';
   $title = "Suprimer Produit";
@@ -31,13 +32,14 @@ function deleteProduct(){
     require ('view/templateView.php');
   }
   elseif (!isset($_GET['id'])) {
-    require ('view/templateView.php');
+    require ('view/produitView.php');
   }
   else {
     throw new Exception("Impossible de trouver le produit selectionné", 1);
 
   }
 }
+
 function editProduct(){
 
   require 'model/products/add.product.php';
