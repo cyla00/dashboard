@@ -61,7 +61,7 @@ include 'header.php';
   </tbody>
 </table>
 
-
+<!-- TABLE2 -->
 <table id="cardtable" style="display:none;" class="table" data-toggle="table" data-search="true" data-pagination="true">
    <tbody>
      <?php
