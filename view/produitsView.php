@@ -49,8 +49,8 @@ include 'header.php';
         <td><?php echo $donnees['data_fin_garantie'] ?></td>
         <td><?php echo $donnees['prix_produit'] ?></td>
         <td><?php echo $donnees['lieux_achat'] ?></td>
-         <td><a href="index.php?action=edit&id=5"><i class="fas fa-edit fa-2x"></i></a></td>
-        <td><a href="index.php?action=delete&id=5"><i class="fas fa-trash-alt fa-2x"></i></a>
+         <td><a href="index.php?action=edit&id=<?= $donnees['id_produit'] ?>"><i class="fas fa-edit fa-2x"></i></a></td>
+        <td><a href="index.php?action=delete&id=<?= $donnees['id_produit'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
         </td>
         </tr>
       <?php } ?>
