@@ -23,10 +23,10 @@
       echo $role;
     ?> </div>
   <div class="col-lg-6 col-sm-6">
-    <a href="index.php?action=produits" alt="retour">Retour<i class="fas fa-level-up-alt fa-2x p-2"></i></a>
-
-    <a href="index.php?stat=exit" alt="disconnect">Disconnect<i class="fas fa-sign-out-alt fa-2x p-2"></i></a>
-
+    <?php if (($_GET['action'] == 'produit') || ($_GET['action'] == 'setting') || ($_GET['action'] == 'add') || ($_GET['action'] == 'edit')): ?>
+      <a href="index.php?action=produits" alt="retour">Retour<i class="fas fa-level-up-alt fa-1x p-2"></i></a>
+    <?php endif; ?>
+  <a href="index.php?stat=exit" alt="disconnect">Disconnect<i class="fas fa-sign-out-alt fa-1x p-2"></i></a>
   </div>
 </div>
 

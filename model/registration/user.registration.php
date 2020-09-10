@@ -65,8 +65,8 @@ class Registration{
 
               if($count > 0){
                 echo "<p class='reg_success'>user already exists!</p>";
-                header('Location: index.php?register=exists');
-                $conn->close();
+                //header('Location: ./index.php?register=exists');
+
               }
               else{
                 $hashed_pwd = password_hash($this->password, PASSWORD_DEFAULT);
@@ -86,7 +86,7 @@ class Registration{
                 else{
                   echo "Error: " . $sql . "<br>" . $conn->error;
                 }
-                
+
                 $prep->close();
               }
             }
