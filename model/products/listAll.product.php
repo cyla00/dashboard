@@ -13,15 +13,18 @@ class ListAllProduct{
     $list_sql = "SELECT * FROM produit";
     $result = $conn->prepare($list_sql);
     $result->execute();
-    return $result;
 
-    //example pour lister les elements row:
+    return $result;
+    // example pour lister les elements row:
 
     // if($fetch > 0){
     //     echo $fetch['referance_produit'];
+    //     echo $fetch['nom_produit'];
     // }
     // else{
     //   echo "nothing";
     // }
-  }
+   }
+
+
 }

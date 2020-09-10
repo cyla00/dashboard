@@ -11,13 +11,16 @@ try {
          listProducts();
        }
        elseif ($_GET['action'] == 'produit'){
-         singleProduct();
+         singleProduct($_GET['id']);
        }
        elseif ($_GET['action'] == 'add'){
          addProduct();
        }
        elseif ($_GET['action'] == 'delete'){
          deleteProduct();
+       }
+       elseif ($_GET['action'] == 'deleteconfirm'){
+         deleteProductConfirm();
        }
        elseif ($_GET['action'] == 'edit'){
          editProduct();
