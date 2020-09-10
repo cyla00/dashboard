@@ -1,12 +1,6 @@
 <?php
-
-if (isset($_SESSION) === false) {
-  session_start();
-  //var_dump($_SESSION);
-  // $_SESSION['admin'] == 'true';
-}
-?>
-
+  global $role;
+ ?>
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -24,7 +18,10 @@ if (isset($_SESSION) === false) {
 </head>
 
 <div class="top-container text-center h-20 py-3 d-flex flex-row justify-content-around align-items-center" id="header-top">
-  <div class="col-lg-6 col-sm-6">Bonjour UTILISATEUR , votre statut est admin/user</div>
+  <div class="col-lg-6 col-sm-6">Bonjour UTILISATEUR , votre statut est
+    <?php
+      echo $role;
+    ?> </div>
   <div class="col-lg-6 col-sm-6">
     <a href="index.php?action=produits" alt="retour">Retour<i class="fas fa-level-up-alt fa-2x p-2"></i></a>
 

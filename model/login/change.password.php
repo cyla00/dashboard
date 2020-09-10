@@ -13,10 +13,10 @@ class ChangePassword{
   }
 
   public static function change_instance(){
-    $email = $_POST['change_email'];
-    $actual = $_POST['change_password'];
-    $new = $_POST['change_newpassword'];
-    $repNew = $_POST['change_repeatnewpassword'];
+    $email = $_POST['chng_email'];
+    $actual = $_POST['chng_password'];
+    $new = $_POST['chng_newpassword'];
+    $repNew = $_POST['chng_repeatnewpassword'];
 
     $changePass = new ChangePassword($email, $actual, $new, $repNew);
     return $changePass;

@@ -1,6 +1,5 @@
-
-
 <?php
+
 
 include 'header.php';
 ?>
@@ -37,22 +36,25 @@ include 'header.php';
     </tr>
   </thead>
   <tbody>
-    <!-- <tr> -->
-      <!-- <?php foreach ($data as $value): ?> -->
-         <!-- <td class='text-center'><a href="index.php?action=produit&id=$value['id_produit']" ><i class="fas fa-info-circle fa-2"></i></a></td>
-        <td><?php echo $value['id_produit'] ?></td>
-        <td><?php echo $value['nom_produit'] ?></td>
-        <td><?php echo $value['category'] ?></td>
-        <td><?php echo $value['referance_produit'] ?></td>
-        <td><?php echo $value['date_achat'] ?></td>
-        <td><?php echo $value['data_fin_garantie'] ?></td>
-        <td><?php echo $value['prix_produit'] ?></td>
-        <td><?php echo $value['vendeur'] ?></td> -->
-        <!-- <td><a href="index.php?action=edit&id=5"><i class="fas fa-edit fa-2x"></i></a></td>
-        <td><a href="index.php?action=delete&id=5"><i class="fas fa-trash-alt fa-2x"></i></a>
-        </td> -->
-      <!-- <?php endforeach; ?> -->
-    <!-- </tr> -->
+
+      <?php
+      while ($donnees = $result->fetch()){ ?>
+        <tr>
+        <td class='text-center'><a href="index.php?action=produit&id=$value['id_produit']" ><i class="fas fa-info-circle fa-2x"></i></a></td>
+        <td><?php echo $donnees['id_produit'] ?></td>
+        <td><?php echo $donnees['nom_produit'] ?></td>
+        <td><?php echo $donnees['categorie_produit'] ?></td>
+        <td><?php echo $donnees['referance_produit'] ?></td>
+        <td><?php echo $donnees['date_achat'] ?></td>
+        <td><?php echo $donnees['data_fin_garantie'] ?></td>
+        <td><?php echo $donnees['prix_produit'] ?></td>
+        <td><?php echo $donnees['lieux_achat'] ?></td>
+         <td><a href="index.php?action=edit&id=<?= $donnees['id_produit'] ?>"><i class="fas fa-edit fa-2x"></i></a></td>
+        <td><a href="index.php?action=delete&id=<?= $donnees['id_produit'] ?>"><i class="fas fa-trash-alt fa-2x"></i></a>
+        </td>
+        </tr>
+      <?php } ?>
+
     <tr class="text-center">
         <td class="col-1"><a href="index.php?action=produit&id=5"><i class="fas fa-info-circle fa-2x"></i></a></td>
         <td class="col-1">5</td>
