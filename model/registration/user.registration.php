@@ -87,6 +87,7 @@ class Registration{
                   echo "Error: " . $sql . "<br>" . $conn->error;
                 }
 
+                $prep->close();
               }
             }
           }

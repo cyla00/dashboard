@@ -1,5 +1,3 @@
-
-
 <?php
 
 include 'header.php';
@@ -10,13 +8,14 @@ include 'header.php';
          <button class="btn btn-default" onclick="displayChange()" type="button" name="toggle" aria-label="Toggle" title="Toggle">
            <i class="fas fa-th-list fa-2x"></i>
          </button>
-
+         <?php if ($role == 'Admin'): ?>
          <button class="btn btn-default" >
            <a href="index.php?action=add"><i class="far fa-plus-square fa-2x"></i></a>
          </button>
          <button class="btn btn-default" >
            <a href="index.php?action=setting"><i class="fas fa-cog fa-2x"></i></a>
          </button>
+         <?php endif; ?>
     </div>
 
 <!-- TABLE1 -->
@@ -33,28 +32,29 @@ include 'header.php';
       <th data-sortable="true" data-field="price" class="col-2">Prix</th>
       <th data-sortable="true" data-field="vendor" class="col-2">Vendeur</th>
       <!-- afficher que si admin -->
-      <!-- <?php //if ($role_result == '1'): ?> -->
+      <?php if ($role == 'Admin'): ?>
         <th data-sortable="true" class="col-2">modifier</th>
         <th data-sortable="true" class="col-2">supprimer</th>
-      <!-- <?php //endif; ?> -->
+      <?php endif; ?>
     </tr>
   </thead>
   <tbody>
-
         <?php
-        while ($data = $list->fetch()) { ?>
+        while ($data = $result->fetch()) { ?>
           <tr>
-          <td class='text-center'><a href="index.php?action=produit&id=$data['id_produit']" ><i class="fas fa-info-circle fa-2"></i></a></td>
+          <td class='text-center'><a href="index.php?action=produit&id=<?php echo $data['id_produit']; ?>" ><i class="fas fa-info-circle fa-2"></i></a></td>
           <td><?php echo $data['referance_produit']; ?></td>
           <td><?php echo $data['nom_produit']; ?></td>
-          <td><?php echo $data['categorie_produit'] ?></td>
-          <td><?php echo $data['referance_produit'] ?></td>
-          <td><?php echo $data['date_achat'] ?></td>
+          <td><?php echo $data['categorie_produit']; ?></td>
+          <td><?php echo $data['referance_produit']; ?></td>
+          <td><?php echo $data['date_achat']; ?></td>
           <td><?php echo $data['data_fin_garantie'] ?></td>
-          <td><?php echo $data['prix_produit'] ?></td>
-          <td><?php echo $data['lieux_achat'] ?></td>
+          <td><?php echo $data['prix_produit']; ?></td>
+          <td><?php echo $data['lieux_achat']; ?></td>
+          <?php if ($role == 'Admin'): ?>
           <td><a href="index.php?action=edit&<?php echo $data['id_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></td>
           <td><a href="index.php?action=delete&<?php echo $data['id_produit']; ?>"><i class="fas fa-trash-alt fa-2x"></i></a></td>
+          <?php endif; ?>
         </tr>
         <?php }; ?>
 
@@ -64,11 +64,9 @@ include 'header.php';
 
 <table id="cardtable" style="display:none;" class="table" data-toggle="table" data-search="true" data-pagination="true">
    <tbody>
-
+     <?php
+        while ($data = $result->fetch()) {  var_dump($data); ?>
      <tr class="w-100">
-
-       <?php var_dump($list);
-        while ($data = $list->fetch()) { ?>
         <td class="w-50">
          <div class="card-view p-1">
          <span class="title mr-2">Produit:</span>
@@ -102,14 +100,15 @@ include 'header.php';
             <div class="col d-flex flex-row justify-content-around align-items-center">
               <div class="text-center align-self-center"><a href="index.php?action=produit&<?php echo $data['id_produit']; ?>"><i class="fas fa-info-circle fa-2x"></i></a></div>
               <!-- affiche si status admin -->
+              <?php if ($role == 'Admin'): ?>
               <div class="col text-center align-self-center"><a href="index.php?action=edit&<?php echo $data['id_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></div>
               <div class="col text-center align-self-center"><a href="index.php?action=delete&<?php echo $data['id_produit']; ?>"><i class="fas fa-trash-alt fa-2x"></i></a></div>
+              <?php endif; ?>
             </div>
           </td>
         </td>
-        <?php } ?>
       </tr>
-
+    <?php } ?>
    </tbody>
  </table>
 </div>

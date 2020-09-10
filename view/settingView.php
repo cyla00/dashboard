@@ -30,7 +30,6 @@ include 'header.php';
 
 </div>
 
-
 <script type="text/javascript">
 var categoryList = ['electromenager','multimédia', 'telephonie'];
 var x = "";
