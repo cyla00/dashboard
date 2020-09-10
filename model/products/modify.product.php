@@ -47,7 +47,7 @@ class ModifyProduct{
     $mod_connection = new Connection();
     $conn = $mod_connection->connect();
 
-    $mod_sql = "UPDATE produit SET nom_produit=:nom, referance_produit=:ref, categorie_produit=:categ, date_achat=:dateAch, data_fin_garantie=:finGar, prix_produit=:prix, photo_ticket=:ticket, zone_entretien=:zone, liuex_achat=:lieux, manuel_utilisation=:manuel WHERE id_produit=:id";
+    $mod_sql = "UPDATE produit SET nom_produit=:nom, referance_produit=:ref, categorie_produit=:categ, date_achat=:dateAch, data_fin_garantie=:finGar, prix_produit=:prix, photo_ticket=:ticket, zone_entretien=:zone, lieux_achat=:lieux, manuel_utilisation=:manuel WHERE id_produit=:id";
 
     $mod_prep = $conn->prepare($mod_sql);
     $mod_prep->execute([
