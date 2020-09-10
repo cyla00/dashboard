@@ -1,11 +1,10 @@
 <?php
-if (isset($_SESSION) === false) {
-  session_start();
-}
-
 require 'model/connection.php';
 require 'model/login/role.check.php';
-$role = role_check();
+if (isset($_SESSION) === false) {
+  session_start();
+  $role = role_check();
+}
 
 function listProducts(){
   require 'model/products/listAll.product.php';
@@ -27,7 +26,33 @@ function addProduct(){
   $title = "Nouveau Produit";
   require ('view/templateView.php');
 }
+function deleteProduct(){
+  require 'model/products/delete.product.php';
+  $title = htmlentities($_GET['nom']);
+  require ('view/deleteView.php');
+   if (isset($_POST['submit'])) {
+    // var_dump($_POST['id']);
+  }
+}
+function deleteProductConfirm(){
+  require 'model/products/delete.product.php';
+  $title = htmlentities($_GET['nom']);
+    if (isset($_GET['id'])) {
+      $productDel = New DeleteProduct(htmlentities($_GET['id']));
+      $productDel->query();
+      require ('view/messageView.php');
+      header("Refresh: 2;URL=index.php?action=produits");
+    }
+    elseif (!isset($_GET['id'])) {
+      require ('view/produitsView.php');
+    }
+    else {
+      throw new Exception("Impossible de trouver le produit selectionné", 1);
+
+    }
+}
 function editProduct(){
+
   require 'model/products/add.product.php';
   $title = "Nom Produit";
   require ('view/templateView.php');

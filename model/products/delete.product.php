@@ -6,9 +6,8 @@ class DeleteProduct{
     $this->del_product_id = $deletedProduct_id;
   }
 
-  public static function del_instance(){
-    $del_id = $_GET['id'];
-    $delete = new DeleteProduct($del_id);
+  public static function del_instance($id){
+    $delete = new DeleteProduct($id);
     return $delete;
   }
 
@@ -16,9 +15,9 @@ class DeleteProduct{
     $del_conn = new Connection();
     $conn = $del_conn->connect();
 
-    $del_sql = "DELETE * FROM produit WHERE id_produit=:id";
+    $del_sql = "DELETE FROM produit WHERE id_produit = :id";
     $del_prep = $conn->prepare($del_sql);
-    $del_prep->execute([':id' => $this->del_product_id]);
+    $del_prep->execute(array('id' => $this->del_product_id));
 
     //besoin de faire afficher l' ID du produit en question dans l url pour le $_GET
   }

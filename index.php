@@ -16,6 +16,12 @@ try {
        elseif ($_GET['action'] == 'add'){
          addProduct();
        }
+       elseif ($_GET['action'] == 'delete'){
+         deleteProduct();
+       }
+       elseif ($_GET['action'] == 'deleteconfirm'){
+         deleteProductConfirm();
+       }
        elseif ($_GET['action'] == 'edit'){
          editProduct();
        }

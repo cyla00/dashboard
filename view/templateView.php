@@ -3,7 +3,6 @@ include 'header.php';
 
  ?>
 
-
 <div class="container form content h-80 justify-content-center align-items-center border">
 <!-- enctype="multipart/form-data" -->
     <form action="" method="post" class="col-lg-12 col-sm-12 row p-5" >
