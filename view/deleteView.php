@@ -11,28 +11,12 @@ include 'header.php';
         Vous souhaitez supprimer le produit : <?= $title ?>
       </div>
       <div class="form group">
-        <button type="submit" class="btn btn-outline-danger" name="submit" data-toggle="modal" data-target="#myModal">Confirmer</button>
+        <button type="submit" class="btn btn-outline-danger" name="submit">Confirmer</button>
         <a href="index.php?action=produits"><button type="button" class="btn btn-outline-danger">Annuler</button></a>
       </div>
    </div>
   </form>
 </div>
-
-<div class="modal fade" id="popup">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-      <!-- Modal body -->
-        <div class="modal-body">
-          Le produit <?= $title ?> a été supprimé;
-        </div>
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-</div>
-
 <?php
 include 'footer.php';
 ?>
