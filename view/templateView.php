@@ -7,6 +7,7 @@ include 'header.php';
 <!-- enctype="multipart/form-data" -->
     <form action="" method="post" class="col-lg-12 col-sm-12 row p-5" >
       <div class="col-lg-6 col-sm-12">
+        <input type="hidden" name="addProduct" value="true">
         <div class="form-group col-lg-8 col-sm-12">
         <label for="name">Nom du produit:</label>
         <input type="text" id="name" class="form-control" placeholder="Entrer le nom" name="name" required>
@@ -37,13 +38,13 @@ include 'header.php';
         <div class="form-group col-lg-8 col-sm-12">
           <label for="example-date-input" class="col-2 col-form-label">Date</label>
           <div class="">
-            <input class="form-control" type="date" value="AAAA-MM-DD" id="example-date-input">
+            <input class="form-control" type="date" value="AAAA-MM-DD" id="example-date-input" name="dateAchat">
           </div>
         </div>
         <div class="form-group col-lg-8 col-sm-12">
           <label for="example-date-input" class="col-2 col-form-label">Date</label>
           <div class="">
-            <input class="form-control" type="date" value="AAAA-MM-DD" id="example-date-input">
+            <input class="form-control" type="date" value="AAAA-MM-DD" id="example-date-input" name="dateGaranti">
           </div>
         </div>
         <div class="form-group col-lg-8 col-sm-12">
@@ -56,10 +57,14 @@ include 'header.php';
         <input type="file" id="manuel" class="form-control" name="manuel" value="">
         <!-- <button type="submit" name="upload" class="btn btn-primary" value="Uploader">Uploader</button> -->
         </div>
-      </div>
-      <div class="form-group col-lg-12 col-sm-12">
-      <label for="conseils">Conseils d'entretien:</label>
-      <textarea type="text" id="conseils" class="form-control" rows="6" cols="50" name="conseils"></textarea>
+        <div class="form-group col-lg-8 col-sm-12">
+        <label for="prix">Zone Entretien</label>
+        <input type="text" id="" class="form-control" placeholder="Entrer la Zone d'entretien" name="zoneEntretien">
+        </div>
+        <div class="form-group col-lg-8 col-sm-12">
+        <label for="prix">Lieu D'Achat</label>
+        <input type="text" id="" class="form-control" placeholder="Entrer le lieu d'achat" name="lieuAchat">
+        </div>
       </div>
       <div class="col-lg-12 col-sm-12">
         <button type="submit" class="btn btn-outline-danger" name="submit">Enregistrer</button>
@@ -72,5 +77,8 @@ include 'header.php';
 </div>
 
 <?php
+if (isset($_POST['addProduct'])) {
+  echo $creationConfirm;
+}
 include 'footer.php';
 ?>
