@@ -12,8 +12,7 @@ class AddProduct{
   private $product_LieuxAchat;
   private $product_manuel;
 
-  public function __construct($product_id, $product_nom, $product_referance, $product_categorie, $product_AchaDate, $product_FinGarantDate, $product_prix, $product_ticket, $product_zoneEntretien, $product_LieuxAchat, $product_manuel){
-    $this->login_id = $product_id;
+  public function __construct($product_nom, $product_referance, $product_categorie, $product_AchaDate, $product_FinGarantDate, $product_prix, $product_ticket, $product_zoneEntretien, $product_LieuxAchat, $product_manuel){
     $this->login_nom = $product_nom;
     $this->login_referance = $product_referance;
     $this->login_categorie = $product_categorie;
@@ -27,8 +26,6 @@ class AddProduct{
   }
 
   public static function AddInstance(){
-
-    $id = null;
     $nom = $_POST['nom'];
     $referance = $_POST['referance'];
     $categorie = $_POST['categorie'];
@@ -40,7 +37,7 @@ class AddProduct{
     $LieuxAchat = $_POST['lieuxAchat'];
     $manuel = $_POST['manuel'];
 
-    $AddProduct = new AddProduct($id, $nom, $referance, $categorie, $AchaDate, $FinGarantDate, $prix, $ticket, $zoneEntretien, $LieuxAchat, $manuel);
+    $AddProduct = new AddProduct($nom, $referance, $categorie, $AchaDate, $FinGarantDate, $prix, $ticket, $zoneEntretien, $LieuxAchat, $manuel);
     return $AddProduct;
   }
 

@@ -24,16 +24,27 @@ function singleProduct($id){
 function addProduct(){
   require 'model/products/add.product.php';
   $title = "Nouveau Produit";
+  // $product = new AddProduct($_POST['nom'], $_POST['referance'], $_POST['categorie'], $_POST['dateAch'], $_POST['dateFin'], $_POST['prix'], $_POST['ticket'], $_POST['entretien'], $_POST['lieuxAchat'], $_POST['manuel']);
+  // $result = $product->add();
+  if (isset($POST_['submit'])) {
+    // $product = AddProduct::AddInstance($_POST['nom'], $_POST['referance'], $_POST['categorie'], $_POST['dateAch'], $_POST['dateFin'], $_POST['prix'], $_POST['ticket'], $_POST['entretien'], $_POST['lieuxAchat'], $_POST['manuel']);
+    // var_dump($product);
+    $product = new AddProduct($_POST['nom'], $_POST['referance'], $_POST['categorie'], $_POST['dateAch'], $_POST['dateFin'], $_POST['prix'], $_POST['ticket'], $_POST['entretien'], $_POST['lieuxAchat'], $_POST['manuel']);
+    $result = $product->add();
+    var_dump($result);
+  }
+
   require ('view/templateView.php');
 }
+
 function deleteProduct(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
   require ('view/deleteView.php');
    if (isset($_POST['submit'])) {
-    // var_dump($_POST['id']);
   }
 }
+
 function deleteProductConfirm(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
