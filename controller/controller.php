@@ -23,18 +23,19 @@ function singleProduct($id){
 }
 function addProduct(){
   require 'model/products/add.product.php';
+  require 'view/class/form.php';
   $title = "Nouveau Produit";
-  // $product = new AddProduct($_POST['nom'], $_POST['referance'], $_POST['categorie'], $_POST['dateAch'], $_POST['dateFin'], $_POST['prix'], $_POST['ticket'], $_POST['entretien'], $_POST['lieuxAchat'], $_POST['manuel']);
-  // $result = $product->add();
-  if (isset($POST_['submit'])) {
-    // $product = AddProduct::AddInstance($_POST['nom'], $_POST['referance'], $_POST['categorie'], $_POST['dateAch'], $_POST['dateFin'], $_POST['prix'], $_POST['ticket'], $_POST['entretien'], $_POST['lieuxAchat'], $_POST['manuel']);
-    // var_dump($product);
-    $product = new AddProduct($_POST['nom'], $_POST['referance'], $_POST['categorie'], $_POST['dateAch'], $_POST['dateFin'], $_POST['prix'], $_POST['ticket'], $_POST['entretien'], $_POST['lieuxAchat'], $_POST['manuel']);
-    $result = $product->add();
-    var_dump($result);
-  }
-
-  require ('view/templateView.php');
+  try {
+      if (isset($_POST['addProduct'])) {
+        $productAdd = New AddProduct($_POST['name'], $_POST['ref'], $_POST['category'], $_POST['dateAchat'], $_POST['dateGaranti'], $_POST['prix'], $_POST['fact'], $_POST['manuel'], $_POST['zoneEntretien'], $_POST['lieuAchat']);
+        $productAdd->add();
+        $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
+      }
+      require ('view/templateView.php');
+    }
+    catch (\Exception $e) {
+      die('Error:' . $e->getMessage());
+    }
 }
 
 function deleteProduct(){
@@ -65,6 +66,7 @@ function deleteProductConfirm(){
 function editProduct(){
 
   require 'model/products/add.product.php';
+  require 'view/class/form.php';
   $title = "Nom Produit";
   require ('view/templateView.php');
 }

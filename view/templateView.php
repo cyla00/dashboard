@@ -1,6 +1,5 @@
 <?php
 include 'header.php';
-require 'class/form.php';
  ?>
 
 <div class="container form content h-80 justify-content-center align-items-center border">
@@ -9,20 +8,20 @@ require 'class/form.php';
       <?php $form = new Form(); ?>
       <div class="col-lg-6 col-sm-12">
         <?php
-        echo $form->input('text','nom', 'Nom du produit : ');
-        echo $form->input('text','referance', 'Référence : ');
+        echo $form->input('text','name', 'Nom du produit : ');
+        echo $form->input('text','ref', 'Référence : ');
         // $categories = ['0' => 'Multimédia','1'=>'Téléphonie','2'=>'Petit électroménager','3'=>'Electroménager','4'=>'Voiture','5'=>'Sport'];
         $categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
-        echo $form->select('categorie', 'Catégorie : ', $categories );
+        echo $form->select('category', 'Catégorie : ', $categories );
         echo $form->input('text','prix', 'Prix : ');
         echo $form->input('text','lieuxAchat', 'Lieux d\'achat : ');
          ?>
       </div>
       <div class="col-lg-6 col-sm-12">
         <?php
-         echo $form->date('date','dateAch', 'Date d\'achat : ');
-         echo $form->date('date','dateFin', 'Date de fin de garantie : ');
-         echo $form->file('file','ticket', 'Facture : ');
+         echo $form->date('date','dateAchat', 'Date d\'achat : ');
+         echo $form->date('date','dateGaranti', 'Date de fin de garantie : ');
+         echo $form->file('file','fact', 'Facture : ');
          echo $form->file('file','manuel', 'Manuel d\'utilisation : ');
          ?>
       </div>
