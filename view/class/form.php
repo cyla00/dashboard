@@ -21,6 +21,10 @@ class Form{
             "</div>" ;
   }
 
+  public function hidden($name, $value){
+    return "<input type=\"hidden\" value=\"$value\" class=\"form-control\" name=\"$name\" required>";
+}
+
   public function select($name, $label, $options){
     $options_html ="";
     foreach ($options as $key => $value) {

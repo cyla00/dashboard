@@ -52,7 +52,7 @@ include 'header.php';
           <td><?php echo $data['prix_produit']; ?></td>
           <td><?php echo $data['lieux_achat']; ?></td>
           <?php if ($role == 'Admin'): ?>
-          <td><a href="index.php?action=edit&id=<?php echo $data['id_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></td>
+          <td><a href="index.php?action=edit&id=<?php echo $data['id_produit']; ?>&nom=<?php echo $data['nom_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></td>
           <td><a href="index.php?action=delete&id=<?php echo $data['id_produit']; ?>&nom=<?php echo $data['nom_produit']; ?>"><i class="fas fa-trash-alt fa-2x"></i></a></td>
           <?php endif; ?>
         </tr>
@@ -101,8 +101,8 @@ include 'header.php';
               <div class="text-center align-self-center"><a href="index.php?action=produit&<?php echo $data['id_produit']; ?>"><i class="fas fa-info-circle fa-2x"></i></a></div>
               <!-- affiche si status admin -->
               <?php if ($role == 'Admin'): ?>
-              <div class="col text-center align-self-center"><a href="index.php?action=edit&<?php echo $data['id_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></div>
-              <div class="col text-center align-self-center"><a href="index.php?action=delete&<?php echo $data['id_produit']; ?>"><i class="fas fa-trash-alt fa-2x"></i></a></div>
+              <div class="col text-center align-self-center"><a href="index.php?action=edit&id=<?php echo $data['id_produit']; ?>&nom=<?php echo $data['nom_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></div>
+              <div class="col text-center align-self-center"><a href="index.php?action=delete&id=<?php echo $data['id_produit']; ?>&nom=<?php echo $data['nom_produit']; ?>"><i class="fas fa-trash-alt fa-2x"></i></a></div>
               <?php endif; ?>
             </div>
           </td>

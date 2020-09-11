@@ -8,13 +8,13 @@ include 'header.php';
       <?php $form = new Form(); ?>
       <div class="col-lg-6 col-sm-12">
         <?php
+        echo $form->hidden('addProduct','1');
         echo $form->input('text','name', 'Nom du produit : ');
-        echo $form->input('text','ref', 'Référence : ');
-        // $categories = ['0' => 'Multimédia','1'=>'Téléphonie','2'=>'Petit électroménager','3'=>'Electroménager','4'=>'Voiture','5'=>'Sport'];
+        echo $form->input('text','ref', 'Référence :');
         $categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
-        echo $form->select('category', 'Catégorie : ', $categories );
+        echo $form->select('category', 'Catégorie : ', $categories);
         echo $form->input('text','prix', 'Prix : ');
-        echo $form->input('text','lieuxAchat', 'Lieux d\'achat : ');
+        echo $form->input('text','lieuAchat', 'Lieux d\'achat : ');
          ?>
       </div>
       <div class="col-lg-6 col-sm-12">
@@ -26,7 +26,7 @@ include 'header.php';
          ?>
       </div>
       <div class="form-group col-lg-12 col-sm-12">
-        <?php echo $form->textarea('entretien', 'Conseils d\'entretien :');?>
+        <?php echo $form->textarea('zoneEntretien', 'Conseils d\'entretien :');?>
       </div>
       <div class="col-lg-12 col-sm-12">
         <?php echo $form->submit('submit', 'Valider');?>
@@ -38,5 +38,8 @@ include 'header.php';
 </div>
 
 <?php
+if (isset($_POST['addProduct'])) {
+  echo $creationConfirm;
+}
 include 'footer.php';
 ?>

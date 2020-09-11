@@ -25,17 +25,21 @@ function addProduct(){
   require 'model/products/add.product.php';
   require 'view/class/form.php';
   $title = "Nouveau Produit";
-  try {
+  // try {
       if (isset($_POST['addProduct'])) {
-        $productAdd = New AddProduct($_POST['name'], $_POST['ref'], $_POST['category'], $_POST['dateAchat'], $_POST['dateGaranti'], $_POST['prix'], $_POST['fact'], $_POST['manuel'], $_POST['zoneEntretien'], $_POST['lieuAchat']);
+        $productAdd = New AddProduct($_POST['name'], $_POST['ref'], $_POST['category'], $_POST['dateAchat'], $_POST['dateGaranti'], $_POST['prix'], $_POST['fact'], $_POST['zoneEntretien'], $_POST['lieuAchat'], $_POST['manuel']);
         $productAdd->add();
         $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
-      }
-      require ('view/templateView.php');
-    }
-    catch (\Exception $e) {
-      die('Error:' . $e->getMessage());
-    }
+    //   }else{
+    //     throw new \Exception("Impossible d'acceder à votre demande", 1);
+    //   }
+    //
+    // }
+    // catch (\Exception $e) {
+    //   die('Error:' . $e->getMessage());
+    // }
+  }
+  require ('view/templateView.php');
 }
 
 function deleteProduct(){
@@ -64,12 +68,34 @@ function deleteProductConfirm(){
     }
 }
 function editProduct(){
-
   require 'model/products/add.product.php';
+  require 'model/products/single.product.php';
   require 'view/class/form.php';
-  $title = "Nom Produit";
+
+  $title = htmlentities($_GET['nom']);
+  // if (isset($_POST['editProduct'])) {
+  //   if (isset($_GET['id'])) {
+  //     $product = new SingleProduct();
+  //     $result = $product->list($id);
+  //
+  //     if (isset($_POST['submit'])) {
+  //       $productEdit = New ModifyProduct(htmlentities($_GET['id']));
+  //       $productEdit->mod();
+  //     }
+  //     require ('view/templateView.php');
+  //   }
+  //   elseif (!isset($_GET['id'])) {
+  //     require ('view/produitsView.php');
+  //   }
+  //   else {
+  //     throw new Exception("Impossible de trouver le produit selectionné", 1);
+  //   }
+  //
+  //
+  // }
   require ('view/templateView.php');
 }
+
 function settings(){
   $title = "Setting";
   require ('view/settingView.php');
@@ -83,4 +109,3 @@ function accueil(){
   require ('view/accueilView.php');
 
 }
-?>
