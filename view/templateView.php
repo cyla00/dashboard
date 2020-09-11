@@ -7,6 +7,7 @@ include 'header.php';
 <!-- enctype="multipart/form-data" -->
     <form action="" method="post" class="col-lg-12 col-sm-12 row p-5" >
       <div class="col-lg-6 col-sm-12">
+        <?php if(isset($_GET['id'])) echo $idGet; ?>
         <input type="hidden" name="addProduct" value="true">
         <div class="form-group col-lg-8 col-sm-12">
         <label for="name">Nom du produit:</label>
@@ -78,7 +79,13 @@ include 'header.php';
 
 <?php
 if (isset($_POST['addProduct'])) {
-  echo $creationConfirm;
+  if (isset($creationConfirm)) {
+    echo $creationConfirm;
+  }
+  elseif (isset($modificationConfirm)) {
+    echo $modificationConfirm;
+  }
 }
+
 include 'footer.php';
 ?>

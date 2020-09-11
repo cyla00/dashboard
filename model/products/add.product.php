@@ -12,7 +12,7 @@ class AddProduct{
   private $product_LieuxAchat;
   private $product_manuel;
 
-  public function __construct($product_nom, $product_referance, $product_categorie, $product_AchatDate, $product_FinGarantDate, $product_prix, $product_ticket, $product_zoneEntretien, $product_LieuxAchat, $product_manuel){
+  public function __construct($product_nom, $product_referance, $product_categorie, $product_AchaDate, $product_FinGarantDate, $product_prix, $product_ticket, $product_zoneEntretien, $product_LieuxAchat, $product_manuel){
 
     $this->login_nom = $product_nom;
     $this->login_referance = $product_referance;
