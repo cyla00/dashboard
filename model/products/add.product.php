@@ -1,6 +1,6 @@
 <?php
 class AddProduct{
-  private $product_id;
+
   private $product_nom;
   private $product_referance;
   private $product_categorie;
@@ -13,6 +13,7 @@ class AddProduct{
   private $product_manuel;
 
   public function __construct($product_nom, $product_referance, $product_categorie, $product_AchatDate, $product_FinGarantDate, $product_prix, $product_ticket, $product_zoneEntretien, $product_LieuxAchat, $product_manuel){
+
     $this->login_nom = $product_nom;
     $this->login_referance = $product_referance;
     $this->login_categorie = $product_categorie;
@@ -26,6 +27,7 @@ class AddProduct{
   }
 
   public static function AddInstance(){
+
     $nom = $_POST['nom'];
     $referance = $_POST['referance'];
     $categorie = $_POST['categorie'];
@@ -60,5 +62,6 @@ class AddProduct{
       ':lieuxAchat' => $this->login_LieuxAchat,
       ':manuel' => $this->login_manuel
     ]);
+
   }
 }

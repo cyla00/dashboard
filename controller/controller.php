@@ -1,10 +1,14 @@
 <?php
 require 'model/connection.php';
 require 'model/login/role.check.php';
-if (isset($_SESSION) === false) {
+
+if (!isset($_SESSION)) {
   session_start();
-  $role = role_check();
+  if (isset($_SESSION['logged_email'])) {
+    $role = role_check();
+  }
 }
+
 
 function listProducts(){
   require 'model/products/listAll.product.php';
@@ -25,8 +29,12 @@ function addProduct(){
   require 'model/products/add.product.php';
   require 'view/class/form.php';
   $title = "Nouveau Produit";
-  // try {
+
       if (isset($_POST['addProduct'])) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> bbdb65eec594e6034d8191c8c0d91bd8275d73a0
           $name = htmlentities($_POST['name']);
           $ref = htmlentities($_POST['ref']);
           $category = htmlentities($_POST['category']);
@@ -38,6 +46,7 @@ function addProduct(){
           $zoneEntretien = htmlentities($_POST['zoneEntretien']);
           $lieuAchat = htmlentities($_POST['lieuAchat']);
 
+<<<<<<< HEAD
           $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
           $productAdd->add();
           $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
@@ -51,14 +60,21 @@ function addProduct(){
     // }
   }
   require ('view/templateView.php');
+=======
+          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
+          $productAdd->add();
+          $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
+
+      }
+      require ('view/templateView.php');
+>>>>>>> bbdb65eec594e6034d8191c8c0d91bd8275d73a0
 }
 
 function deleteProduct(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
   require ('view/deleteView.php');
-   if (isset($_POST['submit'])) {
-  }
+
 }
 
 function deleteProductConfirm(){
@@ -70,15 +86,13 @@ function deleteProductConfirm(){
       require ('view/messageView.php');
       header("Refresh: 2;URL=index.php?action=produits");
     }
-    elseif (!isset($_GET['id'])) {
-      require ('view/produitsView.php');
-    }
     else {
       throw new Exception("Impossible de trouver le produit selectionné", 1);
-
     }
 }
+
 function editProduct(){
+<<<<<<< HEAD
   require 'model/products/modify.product.php';
   require 'model/products/single.product.php';
   require 'view/class/form.php';
@@ -115,6 +129,37 @@ function editProduct(){
     else {
       throw new Exception("Impossible de trouver le produit selectionné", 1);
     }
+=======
+
+  require 'model/products/modify.product.php';
+  $title = "Modifier Produit";
+  $idGet = '<input type="hidden" name="id" value="' . htmlentities($_GET['id']) . '">';
+      if (isset($_POST['addProduct'])) {
+        if (isset($_POST['id'])) {
+          $id = htmlentities($_POST['id']);
+          $name = htmlentities($_POST['name']);
+          $ref = htmlentities($_POST['ref']);
+          $category = htmlentities($_POST['category']);
+          $dateAchat = htmlentities($_POST['dateAchat']);
+          $dateGarenti = htmlentities($_POST['dateGaranti']);
+          $prix = htmlentities($_POST['prix']);
+          $fact = htmlentities($_POST['fact']);
+          $manuel = htmlentities($_POST['manuel']);
+          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+          $lieuxAchat = htmlentities($_POST['lieuAchat']);
+
+          $productAdd = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
+
+          $productAdd->mod();
+          $modificationConfirm = "<script>alert('Produit modifié')</script>";
+        }
+        else {
+          throw new Exception("Impossible de trouver le produit selectionné", 1);
+        }
+    }
+    require ('view/templateView.php');
+
+>>>>>>> bbdb65eec594e6034d8191c8c0d91bd8275d73a0
 }
 
 function settings(){
