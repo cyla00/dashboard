@@ -29,9 +29,22 @@ function addProduct(){
   require 'model/products/add.product.php';
   $title = "Nouveau Produit";
       if (isset($_POST['addProduct'])) {
-        $productAdd = New AddProduct($_POST['name'], $_POST['ref'], $_POST['category'], $_POST['dateAchat'], $_POST['dateGaranti'], $_POST['prix'], $_POST['fact'], $_POST['manuel'], $_POST['zoneEntretien'], $_POST['lieuAchat']);
-        $productAdd->add();
-        $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
+
+          $name = htmlentities($_POST['name']);
+          $ref = htmlentities($_POST['ref']);
+          $category = htmlentities($_POST['category']);
+          $dateAchat = htmlentities($_POST['dateAchat']);
+          $dateGarenti = htmlentities($_POST['dateGaranti']);
+          $prix = htmlentities($_POST['prix']);
+          $fact = htmlentities($_POST['fact']);
+          $manuel = htmlentities($_POST['manuel']);
+          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+          $lieuxAchat = htmlentities($_POST['lieuAchat']);
+
+          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
+          $productAdd->add();
+          $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
+        
       }
       require ('view/templateView.php');
 }
