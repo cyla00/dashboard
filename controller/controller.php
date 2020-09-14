@@ -52,7 +52,6 @@ function deleteProductConfirm(){
     }
     else {
       throw new Exception("Impossible de trouver le produit selectionné", 1);
-
     }
 }
 
@@ -61,11 +60,29 @@ function editProduct(){
   $title = "Modifier Produit";
   $idGet = '<input type="hidden" name="id" value="' . htmlentities($_GET['id']) . '">';
       if (isset($_POST['addProduct'])) {
-        $productAdd = New ModifyProduct($_POST['id'], $_POST['name'], $_POST['ref'], $_POST['category'], $_POST['dateAchat'], $_POST['dateGaranti'], $_POST['prix'], $_POST['fact'], $_POST['manuel'], $_POST['zoneEntretien'], $_POST['lieuAchat']);
-        $productAdd->mod();
-        $modificationConfirm = "<script>alert('Produit modifié')</script>";
-      }
-      require ('view/templateView.php');
+        if (isset($_POST['id'])) {
+          $id = htmlentities($_POST['id']);
+          $name = htmlentities($_POST['name']);
+          $ref = htmlentities($_POST['ref']);
+          $category = htmlentities($_POST['category']);
+          $dateAchat = htmlentities($_POST['dateAchat']);
+          $dateGarenti = htmlentities($_POST['dateGaranti']);
+          $prix = htmlentities($_POST['prix']);
+          $fact = htmlentities($_POST['fact']);
+          $manuel = htmlentities($_POST['manuel']);
+          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+          $lieuxAchat = htmlentities($_POST['lieuAchat']);
+
+          $productAdd = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
+
+          $productAdd->mod();
+          $modificationConfirm = "<script>alert('Produit modifié')</script>";
+        }
+        else {
+          throw new Exception("Impossible de trouver le produit selectionné", 1);
+        }
+    }
+    require ('view/templateView.php');
 }
 
 function settings(){
