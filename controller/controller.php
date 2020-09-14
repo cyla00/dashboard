@@ -5,7 +5,7 @@ require 'model/login/role.check.php';
 if (!isset($_SESSION)) {
   session_start();
   if (isset($_SESSION['logged_email'])) {
-    $role = role_check();
+    $role = role_check()
   }
 }
 
