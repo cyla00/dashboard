@@ -75,6 +75,7 @@ function deleteProductConfirm(){
 function editProduct(){
 
   require 'model/products/modify.product.php';
+  require 'view/class/form.php';
   $title = "Modifier Produit";
   $idGet = '<input type="hidden" name="id" value="' . htmlentities($_GET['id']) . '">';
       if (isset($_POST['addProduct'])) {
@@ -105,8 +106,12 @@ function editProduct(){
 }
 
 function settings(){
-  $title = "Setting";
-  require ('view/settingView.php');
+  require 'view/class/form.php';
+  $title = "Settings";
+
+  //$categories = ['Multimédia'];
+  //$categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
+  require ('view/settingsView.php');
 }
 function accueil(){
   require 'model/login/change.password.php';
@@ -115,5 +120,4 @@ function accueil(){
   require 'model/registration/user.registration.php';
   require 'model/products/listAll.product.php';
   require ('view/accueilView.php');
-
 }

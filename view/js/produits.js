@@ -1,6 +1,5 @@
 
-
-
+// switch affichage produits
 function displayChange() {
   var x = document.getElementById("cardtable");
   var y = document.getElementById("listtable");
