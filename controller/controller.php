@@ -27,9 +27,20 @@ function addProduct(){
   $title = "Nouveau Produit";
   // try {
       if (isset($_POST['addProduct'])) {
-        $productAdd = New AddProduct($_POST['name'], $_POST['ref'], $_POST['category'], $_POST['dateAchat'], $_POST['dateGaranti'], $_POST['prix'], $_POST['fact'], $_POST['zoneEntretien'], $_POST['lieuAchat'], $_POST['manuel']);
-        $productAdd->add();
-        $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
+          $name = htmlentities($_POST['name']);
+          $ref = htmlentities($_POST['ref']);
+          $category = htmlentities($_POST['category']);
+          $dateAchat = htmlentities($_POST['dateAchat']);
+          $dateGaranti = htmlentities($_POST['dateGaranti']);
+          $prix = htmlentities($_POST['prix']);
+          $fact = htmlentities($_POST['fact']);
+          $manuel = htmlentities($_POST['manuel']);
+          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+          $lieuAchat = htmlentities($_POST['lieuAchat']);
+
+          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
+          $productAdd->add();
+          $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
     //   }else{
     //     throw new \Exception("Impossible d'acceder à votre demande", 1);
     //   }
@@ -68,37 +79,51 @@ function deleteProductConfirm(){
     }
 }
 function editProduct(){
-  require 'model/products/add.product.php';
+  require 'model/products/modify.product.php';
   require 'model/products/single.product.php';
   require 'view/class/form.php';
 
   $title = htmlentities($_GET['nom']);
-  // if (isset($_POST['editProduct'])) {
-  //   if (isset($_GET['id'])) {
-  //     $product = new SingleProduct();
-  //     $result = $product->list($id);
-  //
-  //     if (isset($_POST['submit'])) {
-  //       $productEdit = New ModifyProduct(htmlentities($_GET['id']));
-  //       $productEdit->mod();
-  //     }
-  //     require ('view/templateView.php');
-  //   }
-  //   elseif (!isset($_GET['id'])) {
-  //     require ('view/produitsView.php');
-  //   }
-  //   else {
-  //     throw new Exception("Impossible de trouver le produit selectionné", 1);
-  //   }
-  //
-  //
-  // }
-  require ('view/templateView.php');
+
+    if (isset($_GET['id'])) {
+      $product = new SingleProduct();
+      $id = htmlentities($_GET['id']);
+      $result = $product->list($id);
+      var_dump($result);
+
+      if (isset($_POST['submit'])) {
+        $id = htmlentities($_GET['id']);
+        $name = htmlentities($_POST['name']);
+        $ref = htmlentities($_POST['ref']);
+        $category = htmlentities($_POST['category']);
+        $dateAchat = htmlentities($_POST['dateAchat']);
+        $dateGaranti = htmlentities($_POST['dateGaranti']);
+        $prix = htmlentities($_POST['prix']);
+        $fact = htmlentities($_POST['fact']);
+        $manuel = htmlentities($_POST['manuel']);
+        $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+        $lieuAchat = htmlentities($_POST['lieuAchat']);
+
+        $productEdit = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact,  $zoneEntretien, $lieuAchat, $manuel);
+        $productEdit->mod();
+      }
+      require ('view/templateView.php');
+    }
+    elseif (!isset($_GET['id'])) {
+      require ('view/produitsView.php');
+    }
+    else {
+      throw new Exception("Impossible de trouver le produit selectionné", 1);
+    }
 }
 
 function settings(){
-  $title = "Setting";
-  require ('view/settingView.php');
+  require 'view/class/form.php';
+  $title = "Settings";
+
+  //$categories = ['Multimédia'];
+  //$categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
+  require ('view/settingsView.php');
 }
 function accueil(){
   require 'model/login/change.password.php';
@@ -107,5 +132,4 @@ function accueil(){
   require 'model/registration/user.registration.php';
   require 'model/products/listAll.product.php';
   require ('view/accueilView.php');
-
 }
