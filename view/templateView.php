@@ -43,6 +43,6 @@ include 'header.php';
   elseif (isset($modificationConfirm)) {
     echo $modificationConfirm;
   }
-}
+
 include 'footer.php';
 ?>

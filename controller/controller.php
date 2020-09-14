@@ -5,7 +5,7 @@ require 'model/login/role.check.php';
 if (!isset($_SESSION)) {
   session_start();
   if (isset($_SESSION['logged_email'])) {
-    $role = role_check()
+    $role = role_check();
   }
 }
 
@@ -43,7 +43,7 @@ function addProduct(){
           $zoneEntretien = htmlentities($_POST['zoneEntretien']);
           $lieuAchat = htmlentities($_POST['lieuAchat']);
 
-          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
+          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
           $productAdd->add();
           $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
 
@@ -75,24 +75,27 @@ function deleteProductConfirm(){
 function editProduct(){
 
   require 'model/products/modify.product.php';
+  require 'model/products/single.product.php';
   require 'view/class/form.php';
   $title = "Modifier Produit";
-  $idGet = '<input type="hidden" name="id" value="' . htmlentities($_GET['id']) . '">';
+  $id = htmlentities($_GET['id']);
+
+
       if (isset($_POST['addProduct'])) {
-        if (isset($_POST['id'])) {
-          $id = htmlentities($_POST['id']);
+        if (isset($_GET['id'])) {
+          $id = htmlentities($_GET['id']);
           $name = htmlentities($_POST['name']);
           $ref = htmlentities($_POST['ref']);
           $category = htmlentities($_POST['category']);
           $dateAchat = htmlentities($_POST['dateAchat']);
-          $dateGarenti = htmlentities($_POST['dateGaranti']);
+          $dateGaranti = htmlentities($_POST['dateGaranti']);
           $prix = htmlentities($_POST['prix']);
           $fact = htmlentities($_POST['fact']);
           $manuel = htmlentities($_POST['manuel']);
           $zoneEntretien = htmlentities($_POST['zoneEntretien']);
-          $lieuxAchat = htmlentities($_POST['lieuAchat']);
+          $lieuAchat = htmlentities($_POST['lieuAchat']);
 
-          $productAdd = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
+          $productAdd = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
 
           $productAdd->mod();
           $modificationConfirm = "<script>alert('Produit modifié')</script>";
@@ -101,6 +104,8 @@ function editProduct(){
           throw new Exception("Impossible de trouver le produit selectionné", 1);
         }
     }
+    $results = new SingleProduct();
+    $result = $results->list($id);
     require ('view/templateView.php');
 
 }
