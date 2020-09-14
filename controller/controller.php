@@ -31,10 +31,7 @@ function addProduct(){
   $title = "Nouveau Produit";
 
       if (isset($_POST['addProduct'])) {
-<<<<<<< HEAD
-=======
 
->>>>>>> bbdb65eec594e6034d8191c8c0d91bd8275d73a0
           $name = htmlentities($_POST['name']);
           $ref = htmlentities($_POST['ref']);
           $category = htmlentities($_POST['category']);
@@ -46,28 +43,12 @@ function addProduct(){
           $zoneEntretien = htmlentities($_POST['zoneEntretien']);
           $lieuAchat = htmlentities($_POST['lieuAchat']);
 
-<<<<<<< HEAD
-          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
-          $productAdd->add();
-          $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
-    //   }else{
-    //     throw new \Exception("Impossible d'acceder à votre demande", 1);
-    //   }
-    //
-    // }
-    // catch (\Exception $e) {
-    //   die('Error:' . $e->getMessage());
-    // }
-  }
-  require ('view/templateView.php');
-=======
           $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $manuel, $zoneEntretien, $lieuAchat);
           $productAdd->add();
           $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
 
       }
       require ('view/templateView.php');
->>>>>>> bbdb65eec594e6034d8191c8c0d91bd8275d73a0
 }
 
 function deleteProduct(){
@@ -92,46 +73,9 @@ function deleteProductConfirm(){
 }
 
 function editProduct(){
-<<<<<<< HEAD
+
   require 'model/products/modify.product.php';
-  require 'model/products/single.product.php';
   require 'view/class/form.php';
-
-  $title = htmlentities($_GET['nom']);
-
-    if (isset($_GET['id'])) {
-      $product = new SingleProduct();
-      $id = htmlentities($_GET['id']);
-      $result = $product->list($id);
-      var_dump($result);
-
-      if (isset($_POST['submit'])) {
-        $id = htmlentities($_GET['id']);
-        $name = htmlentities($_POST['name']);
-        $ref = htmlentities($_POST['ref']);
-        $category = htmlentities($_POST['category']);
-        $dateAchat = htmlentities($_POST['dateAchat']);
-        $dateGaranti = htmlentities($_POST['dateGaranti']);
-        $prix = htmlentities($_POST['prix']);
-        $fact = htmlentities($_POST['fact']);
-        $manuel = htmlentities($_POST['manuel']);
-        $zoneEntretien = htmlentities($_POST['zoneEntretien']);
-        $lieuAchat = htmlentities($_POST['lieuAchat']);
-
-        $productEdit = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact,  $zoneEntretien, $lieuAchat, $manuel);
-        $productEdit->mod();
-      }
-      require ('view/templateView.php');
-    }
-    elseif (!isset($_GET['id'])) {
-      require ('view/produitsView.php');
-    }
-    else {
-      throw new Exception("Impossible de trouver le produit selectionné", 1);
-    }
-=======
-
-  require 'model/products/modify.product.php';
   $title = "Modifier Produit";
   $idGet = '<input type="hidden" name="id" value="' . htmlentities($_GET['id']) . '">';
       if (isset($_POST['addProduct'])) {
@@ -159,7 +103,6 @@ function editProduct(){
     }
     require ('view/templateView.php');
 
->>>>>>> bbdb65eec594e6034d8191c8c0d91bd8275d73a0
 }
 
 function settings(){
