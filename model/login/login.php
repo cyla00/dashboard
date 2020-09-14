@@ -41,7 +41,7 @@
         $role_prep->execute([':email' => $_SESSION['logged_email']]);
         $role_dump = $role_prep->fetch(PDO::FETCH_NUM);
 
-        if($role_dump[0] == 'user'){
+        if($role_dump[0] == '0'){
           header('Location: index.php?&action=produits');
         }
         else{

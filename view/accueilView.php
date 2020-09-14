@@ -1,12 +1,8 @@
 
 <?php
-include 'headerac.php';
-require './model/login/change.password.php';
-require './model/login/login.php';
-require './model/connection.php';
-require './model/products/listAll.product.php';
 
-ListAllProduct::list_instance()->list();
+include 'headerac.php';
+
 ?>
 <body>
   <div class="container d-flex flex-column h-90 w-auto">
@@ -153,6 +149,11 @@ ListAllProduct::list_instance()->list();
        </div>
      </div>
     </div>
+    <?php
+    if(isset($_POST['registerBtn'])){
+      Registration::reg()->check();
+    }
+    ?>
   </div>
 
 <?php

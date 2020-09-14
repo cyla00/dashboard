@@ -6,20 +6,25 @@ require 'controller/controller.php';
 try {
 
     if (isset($_GET['action'])){
-
        if ($_GET['action'] == 'produits'){
          listProducts();
        }
-       if ($_GET['action'] == 'produit'){
-         singleProduct();
+       elseif ($_GET['action'] == 'produit'){
+         singleProduct($_GET['id']);
        }
-       if ($_GET['action'] == 'add'){
+       elseif ($_GET['action'] == 'add'){
          addProduct();
        }
-       if ($_GET['action'] == 'edit'){
+       elseif ($_GET['action'] == 'delete'){
+         deleteProduct();
+       }
+       elseif ($_GET['action'] == 'deleteconfirm'){
+         deleteProductConfirm();
+       }
+       elseif ($_GET['action'] == 'edit'){
          editProduct();
        }
-       if ($_GET['action'] == 'setting'){
+       elseif ($_GET['action'] == 'setting'){
          settings();
        }
        else {
