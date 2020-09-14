@@ -27,7 +27,9 @@ function singleProduct($id){
 }
 function addProduct(){
   require 'model/products/add.product.php';
+  require 'view/class/form.php';
   $title = "Nouveau Produit";
+
       if (isset($_POST['addProduct'])) {
 
           $name = htmlentities($_POST['name']);
@@ -53,7 +55,9 @@ function deleteProduct(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
   require ('view/deleteView.php');
+
 }
+
 function deleteProductConfirm(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
@@ -69,6 +73,7 @@ function deleteProductConfirm(){
 }
 
 function editProduct(){
+
   require 'model/products/modify.product.php';
   $title = "Modifier Produit";
   $idGet = '<input type="hidden" name="id" value="' . htmlentities($_GET['id']) . '">';
@@ -96,6 +101,7 @@ function editProduct(){
         }
     }
     require ('view/templateView.php');
+
 }
 
 function settings(){
@@ -111,4 +117,3 @@ function accueil(){
   require ('view/accueilView.php');
 
 }
-?>
