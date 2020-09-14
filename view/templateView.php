@@ -7,6 +7,7 @@ include 'header.php';
     <form action="" method="post" class="col-lg-12 col-sm-12 row p-5" >
       <?php $form = new Form(); ?>
       <div class="col-lg-6 col-sm-12">
+
         <?php
         echo $form->hidden('addProduct','1');
         echo $form->input('text','name', 'Nom du produit : ');
@@ -38,8 +39,12 @@ include 'header.php';
 </div>
 
 <?php
-if (isset($_POST['addProduct'])) {
-  echo $creationConfirm;
+  if (isset($creationConfirm)) {
+    echo $creationConfirm;
+  }
+  elseif (isset($modificationConfirm)) {
+    echo $modificationConfirm;
+  }
 }
 include 'footer.php';
 ?>

@@ -64,4 +64,5 @@ class ModifyProduct{
       ':id' => $this->mod_id
     ]);
 }
+}
 //besoin de faire afficher l' ID du produit en question dans l url pour le $_GET
