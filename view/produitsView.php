@@ -5,8 +5,8 @@ include 'header.php';
 ?>
  <div class="container content">
      <div class="bs-bars pull-left">
-         <button class="btn btn-default" onclick="displayChange()" type="button" name="toggle" aria-label="Toggle" title="Toggle">
-           <i class="fas fa-th-list fa-2x"></i>
+         <button class="btn btn-default">
+           <a href="index.php?action=graph"><i class="fas fa-chart-pie fa-2x"></i></a>
          </button>
          <?php if ($role == 'Admin'): ?>
          <button class="btn btn-default" >
@@ -19,7 +19,8 @@ include 'header.php';
     </div>
 
 <!-- TABLE1 -->
-<table id="listtable" class="table" data-toggle="table" data-show-columns="true" data-search="true" data-pagination="true">
+
+<table class="table" data-toggle="table" data-show-columns="true" data-search="true" data-pagination="true">
   <thead>
     <tr class="text-center">
       <th data-sortable="true" data-field="details" class="col-1">Détails</th>
@@ -60,58 +61,9 @@ include 'header.php';
 
   </tbody>
 </table>
-
-<!-- TABLE2 -->
-<table id="cardtable" style="display:none;" class="table" data-toggle="table" data-search="true" data-pagination="true">
-   <tbody>
-     <?php
-        while ($data = $result->fetch()) {  var_dump($data); ?>
-     <tr class="w-100">
-        <td class="w-50">
-         <div class="card-view p-1">
-         <span class="title mr-2">Produit:</span>
-         <span class="value"><?php echo $data['id_produit']; ?></span>
-         </div>
-         <div class="card-view p-1">
-           <span class="title mr-2">Nom du produit:</span>
-           <span class="value"><?php echo $data['nom_produit']; ?></span>
-         </div>
-         <div class="card-view p-1">
-           <span class="title mr-2">référence:</span>
-           <span class="value"><?php echo $data['referance_produit']; ?></span>
-         </div>
-         <div class="card-view p-1">
-           <span class="title mr-2">Date d'achat:</span>
-           <span class="value"><?php echo $data['date_achat']; ?></span>
-         </div>
-         <div class="card-view p-1">
-           <span class="title mr-2">Date fin de garantie:</span>
-           <span class="value"><?php echo $data['data_fin_garantie']; ?></span>
-         </div>
-         <div class="card-view p-1">
-           <span class="title mr-2">Prix:</span>
-           <span class="value"><?php echo $data['prix_produit']; ?></span>
-         </div>
-         <div class="card-view p-1">
-           <span class="title mr-2">e-comm/direct:</span>
-           <span class="value"><?php echo $data['lieux_achat']; ?></span>
-         </div>
-         <td class="col-6 text-center justify-content-center align-items-center">
-            <div class="col d-flex flex-row justify-content-around align-items-center">
-              <div class="text-center align-self-center"><a href="index.php?action=produit&<?php echo $data['id_produit']; ?>"><i class="fas fa-info-circle fa-2x"></i></a></div>
-              <!-- affiche si status admin -->
-              <?php if ($role == 'Admin'): ?>
-              <div class="col text-center align-self-center"><a href="index.php?action=edit&id=<?php echo $data['id_produit']; ?>&nom=<?php echo $data['nom_produit']; ?>"><i class="fas fa-edit fa-2x"></i></a></div>
-              <div class="col text-center align-self-center"><a href="index.php?action=delete&id=<?php echo $data['id_produit']; ?>&nom=<?php echo $data['nom_produit']; ?>"><i class="fas fa-trash-alt fa-2x"></i></a></div>
-              <?php endif; ?>
-            </div>
-          </td>
-        </td>
-      </tr>
-    <?php } ?>
-   </tbody>
- </table>
 </div>
+
+
 
  <?php
  include 'footer.php';

@@ -1,16 +1,16 @@
 
 // switch affichage produits
-function displayChange() {
-  var x = document.getElementById("cardtable");
-  var y = document.getElementById("listtable");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-    y.style.display = "none";
-  } else {
-    x.style.display = "none";
-    y.style.display = "block";
-  }
-}
+// function displayChange() {
+//   var x = document.getElementById("cardtable");
+//   var y = document.getElementById("listtable");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//     y.style.display = "none";
+//   } else {
+//     x.style.display = "none";
+//     y.style.display = "block";
+//   }
+// }
 
 
 //filtre

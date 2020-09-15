@@ -15,16 +15,16 @@ class ListAllProduct{
     $result->execute();
 
     return $result;
-    // example pour lister les elements row:
 
-    // if($fetch > 0){
-    //     echo $fetch['referance_produit'];
-    //     echo $fetch['nom_produit'];
-    // }
-    // else{
-    //   echo "nothing";
-    // }
    }
 
+   public function produitParCat(){
+     $list_connection = new Connection();
+     $conn = $list_connection->connect();
 
+     $list = "SELECT categorie_produit , COUNT(nom_produit) FROM produit GROUP BY categorie_produit";
+     $result = $conn->prepare($list);
+     $result->execute();
+     return $result;
+   }
 }

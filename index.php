@@ -27,6 +27,9 @@ try {
        elseif ($_GET['action'] == 'setting'){
          settings();
        }
+       elseif ($_GET['action'] == 'graph'){
+         graph();
+       }
        else {
          throw new Exception("Nous avons pas pu accéder à votre demande", 1);
        }
