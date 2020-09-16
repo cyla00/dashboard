@@ -14,6 +14,26 @@ include 'header.php';
     <?php echo $form->submit('submit', 'Ajouter');?>
   </div>
 </form>
+
+<div class="row p-5">
+  <div class="col-lg-6 col-sm-12">
+    <table class="table table-striped">
+      <thead class="">
+        <th>Categories disponibles</th>
+      </thead>
+      <tbody class="">
+      <?php
+      //var_dump($categories);
+      foreach ($categories as $value): ?>
+        <tr>
+          <td><?php echo $value; ?></td>
+        </tr>
+      <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <?php
 
 $categoriesList = array();
@@ -27,34 +47,16 @@ if (isset($_POST['submit'])) {
 
   $result = array_diff($categoriesList, $categories);
   var_dump($result);
-  if (!empty($result)) {
+  if ($result !== $newcat){
+    $message = "<script>alert('Cette categorie existe déja')</script>";
+  } else {
     array_push($categories, $newcat);
     var_dump($categories);
     return $categories;
-  } else {
-    $message = "<script>alert('Cette categorie existe déja')</script>";
   }
 }
 
 ?>
-<div class="row p-5">
-  <div class="col-lg-6 col-sm-12">
-    <table class="table table-striped">
-      <thead class="">
-        <th>Categories disponibles</th>
-      </thead>
-      <tbody class="">
-      <?php
-      var_dump($categories);
-      foreach ($categories as $value): ?>
-        <tr>
-          <td><?php echo $value; ?></td>
-        </tr>
-      <?php endforeach; ?>
-      </tbody>
-    </table>
-  </div>
-</div>
 
 <?php
   // print_r($categories);
