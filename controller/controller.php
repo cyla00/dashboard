@@ -1,10 +1,14 @@
 <?php
 require 'model/connection.php';
 require 'model/login/role.check.php';
-if (isset($_SESSION) === false) {
+
+if (!isset($_SESSION)) {
   session_start();
-  $role = role_check();
+  if (isset($_SESSION['logged_email'])) {
+    $role = role_check();
+  }
 }
+
 
 function listProducts(){
   require 'model/products/listAll.product.php';
@@ -23,17 +27,37 @@ function singleProduct($id){
 }
 function addProduct(){
   require 'model/products/add.product.php';
+  require 'view/class/form.php';
   $title = "Nouveau Produit";
-  require ('view/templateView.php');
+
+      if (isset($_POST['addProduct'])) {
+
+          $name = htmlentities($_POST['name']);
+          $ref = htmlentities($_POST['ref']);
+          $category = htmlentities($_POST['category']);
+          $dateAchat = htmlentities($_POST['dateAchat']);
+          $dateGaranti = htmlentities($_POST['dateGaranti']);
+          $prix = htmlentities($_POST['prix']);
+          $fact = htmlentities($_POST['fact']);
+          $manuel = htmlentities($_POST['manuel']);
+          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+          $lieuAchat = htmlentities($_POST['lieuAchat']);
+
+          $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
+          $productAdd->add();
+          $creationConfirm = "<script>alert('Produit ajouté à la base de donnée')</script>";
+
+      }
+      require ('view/templateView.php');
 }
+
 function deleteProduct(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
   require ('view/deleteView.php');
-   if (isset($_POST['submit'])) {
-    // var_dump($_POST['id']);
-  }
+
 }
+
 function deleteProductConfirm(){
   require 'model/products/delete.product.php';
   $title = htmlentities($_GET['nom']);
@@ -43,23 +67,56 @@ function deleteProductConfirm(){
       require ('view/messageView.php');
       header("Refresh: 2;URL=index.php?action=produits");
     }
-    elseif (!isset($_GET['id'])) {
-      require ('view/produitsView.php');
-    }
     else {
       throw new Exception("Impossible de trouver le produit selectionné", 1);
-
     }
 }
+
 function editProduct(){
 
-  require 'model/products/add.product.php';
-  $title = "Nom Produit";
-  require ('view/templateView.php');
+  require 'model/products/modify.product.php';
+  require 'model/products/single.product.php';
+  require 'view/class/form.php';
+  $title = "Modifier Produit";
+  $id = htmlentities($_GET['id']);
+
+
+      if (isset($_POST['addProduct'])) {
+        if (isset($_GET['id'])) {
+          $id = htmlentities($_GET['id']);
+          $name = htmlentities($_POST['name']);
+          $ref = htmlentities($_POST['ref']);
+          $category = htmlentities($_POST['category']);
+          $dateAchat = htmlentities($_POST['dateAchat']);
+          $dateGaranti = htmlentities($_POST['dateGaranti']);
+          $prix = htmlentities($_POST['prix']);
+          $fact = htmlentities($_POST['fact']);
+          $manuel = htmlentities($_POST['manuel']);
+          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
+          $lieuAchat = htmlentities($_POST['lieuAchat']);
+
+          $productAdd = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
+
+          $productAdd->mod();
+          $modificationConfirm = "<script>alert('Produit modifié')</script>";
+        }
+        else {
+          throw new Exception("Impossible de trouver le produit selectionné", 1);
+        }
+    }
+    $results = new SingleProduct();
+    $result = $results->list($id);
+    require ('view/templateView.php');
+
 }
+
 function settings(){
-  $title = "Setting";
-  require ('view/settingView.php');
+  require 'view/class/form.php';
+  $title = "Settings";
+
+  //$categories = ['Multimédia'];
+  //$categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
+  require ('view/settingsView.php');
 }
 function accueil(){
   require 'model/login/change.password.php';
@@ -68,6 +125,4 @@ function accueil(){
   require 'model/registration/user.registration.php';
   require 'model/products/listAll.product.php';
   require ('view/accueilView.php');
-
 }
-?>
