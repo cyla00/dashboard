@@ -68,7 +68,6 @@ function deleteProductConfirm(){
       $productDel->query();
       header("Refresh: 2;URL=index.php?action=produits");
       require ('view/messageView.php');
-
     }
     else {
       throw new Exception("Impossible de trouver le produit selectionné", 1);
