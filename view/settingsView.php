@@ -3,7 +3,7 @@
 <?php
 include 'header.php';
 ?>
-<form class="col-lg-12 col-sm-12 row p-5" action="" method="post">
+<form class="col-lg-12 col-sm-12 row p-5" action="index.php?action=setting" method="post">
   <?php $form = new Form(); ?>
   <div class="col-lg-6 col-sm-12 m-2">
   <?php
@@ -12,6 +12,10 @@ include 'header.php';
   </div>
   <div class="col-lg-12 col-sm-12 m-2">
     <?php echo $form->submit('submit', 'Ajouter');?>
+    <!-- <input type="submit" name="envoyer" value="Envoyer" onclick="window.location.href('http://url_de_ta_page')">
+    <input type="submit" name="envoyer" value="Envoyer" onclick="window.location.href='http://localhost/GestionDesRessources/site/c_ressources.php'"> -->
+
+
   </div>
 </form>
 
