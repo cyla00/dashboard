@@ -27,8 +27,10 @@ function singleProduct($id){
 }
 function addProduct(){
   require 'model/products/add.product.php';
+  require 'model/products/formAdd.php';
   require 'view/class/form.php';
   $title = "Nouveau Produit";
+  $result = '';
 
       if (isset($_POST['addProduct'])) {
 
@@ -76,12 +78,13 @@ function editProduct(){
 
   require 'model/products/modify.product.php';
   require 'model/products/single.product.php';
+
   require 'view/class/form.php';
   $title = "Modifier Produit";
   $id = htmlentities($_GET['id']);
 
 
-      if (isset($_POST['addProduct'])) {
+      if (isset($_POST['modifyProduct'])) {
         if (isset($_GET['id'])) {
           $id = htmlentities($_GET['id']);
           $name = htmlentities($_POST['name']);
@@ -106,6 +109,7 @@ function editProduct(){
     }
     $results = new SingleProduct();
     $result = $results->list($id);
+    require 'model/products/formEdit.php';
     require ('view/templateView.php');
 
 }
