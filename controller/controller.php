@@ -9,13 +9,13 @@ if (!isset($_SESSION)) {
   }
 }
 
-
 function listProducts(){
   require 'model/products/listAll.product.php';
   $title = "Liste des produits";
   $list = New ListAllProduct();
   $result = $list->list();
   require ('view/produitsView.php');
+
 }
 
 function singleProduct($id){
@@ -113,11 +113,22 @@ function editProduct(){
 function settings(){
   require 'view/class/form.php';
   $title = "Settings";
-
   //$categories = ['Multimédia'];
-  //$categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
+  $categories = ['Multimédia','Téléphonie','Petit électroménager','Electroménager','Voiture','Sport'];
+  $categories;
   require ('view/settingsView.php');
 }
+
+function graph(){
+  require 'model/products/listAll.product.php';
+  $title = "Reporting";
+  $list = New ListAllProduct();
+  $result = $list->list();
+  $result1 = $list->produitParCat();
+  require ('view/graphView.php');
+}
+
+
 function accueil(){
   require 'model/login/change.password.php';
   require 'model/login/login.php';

@@ -14,7 +14,10 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+
     <link rel="stylesheet" href="view/css/stylePage.css"/>
+    <link rel="stylesheet" href="view/css/graph.css"/>
 </head>
 
 <div class="top-container text-center h-20 py-3 d-flex flex-row justify-content-around align-items-center" id="header-top">
@@ -23,7 +26,7 @@
       echo $role;
     ?> </div>
   <div class="col-lg-6 col-sm-6">
-    <?php if (($_GET['action'] == 'produit') || ($_GET['action'] == 'setting') || ($_GET['action'] == 'add') || ($_GET['action'] == 'edit')): ?>
+    <?php if (($_GET['action'] == 'produit') || ($_GET['action'] == 'setting') || ($_GET['action'] == 'graph') || ($_GET['action'] == 'add') || ($_GET['action'] == 'edit')): ?>
       <a href="index.php?action=produits" alt="retour">Retour<i class="fas fa-level-up-alt fa-1x p-2"></i></a>
     <?php endif; ?>
   <a href="index.php?stat=exit" alt="disconnect">Disconnect<i class="fas fa-sign-out-alt fa-1x p-2"></i></a>
