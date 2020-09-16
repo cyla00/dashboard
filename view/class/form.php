@@ -26,7 +26,7 @@ class Form{
 }
 
   public function select($name, $label, $options, $value){
-    $options_html ="";
+    $options_html = array('Multimédia', "Electroménager", "Voiture");;
     foreach ($options as $key => $val) {
       $options_html .= "<option value=\"$val\">$value</option>";
   }

@@ -34,16 +34,16 @@ function addProduct(){
 
       if (isset($_POST['addProduct'])) {
 
-          $name = htmlentities($_POST['name']);
-          $ref = htmlentities($_POST['ref']);
-          $category = htmlentities($_POST['category']);
-          $dateAchat = htmlentities($_POST['dateAchat']);
-          $dateGaranti = htmlentities($_POST['dateGaranti']);
-          $prix = htmlentities($_POST['prix']);
-          $fact = htmlentities($_POST['fact']);
-          $manuel = htmlentities($_POST['manuel']);
-          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
-          $lieuAchat = htmlentities($_POST['lieuAchat']);
+          $name = htmlspecialchars($_POST['name']);
+          $ref = htmlspecialchars($_POST['ref']);
+          $category = htmlspecialchars($_POST['category']);
+          $dateAchat = htmlspecialchars($_POST['dateAchat']);
+          $dateGaranti = htmlspecialchars($_POST['dateGaranti']);
+          $prix = htmlspecialchars($_POST['prix']);
+          $fact = htmlspecialchars($_POST['fact']);
+          $manuel = htmlspecialchars($_POST['manuel']);
+          $zoneEntretien = htmlspecialchars($_POST['zoneEntretien']);
+          $lieuAchat = htmlspecialchars($_POST['lieuAchat']);
 
           $productAdd = New AddProduct($name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
           $productAdd->add();
@@ -55,19 +55,20 @@ function addProduct(){
 
 function deleteProduct(){
   require 'model/products/delete.product.php';
-  $title = htmlentities($_GET['nom']);
+  $title = htmlspecialchars($_GET['nom']);
   require ('view/deleteView.php');
 
 }
 
 function deleteProductConfirm(){
   require 'model/products/delete.product.php';
-  $title = htmlentities($_GET['nom']);
+  $title = htmlspecialchars($_GET['nom']);
     if (isset($_GET['id'])) {
-      $productDel = New DeleteProduct(htmlentities($_GET['id']));
+      $productDel = New DeleteProduct(htmlspecialchars($_GET['id']));
       $productDel->query();
-      require ('view/messageView.php');
       header("Refresh: 2;URL=index.php?action=produits");
+      require ('view/messageView.php');
+
     }
     else {
       throw new Exception("Impossible de trouver le produit selectionné", 1);
@@ -81,22 +82,22 @@ function editProduct(){
 
   require 'view/class/form.php';
   $title = "Modifier Produit";
-  $id = htmlentities($_GET['id']);
+  $id = htmlspecialchars($_GET['id']);
 
 
       if (isset($_POST['modifyProduct'])) {
         if (isset($_GET['id'])) {
-          $id = htmlentities($_GET['id']);
-          $name = htmlentities($_POST['name']);
-          $ref = htmlentities($_POST['ref']);
-          $category = htmlentities($_POST['category']);
-          $dateAchat = htmlentities($_POST['dateAchat']);
-          $dateGaranti = htmlentities($_POST['dateGaranti']);
-          $prix = htmlentities($_POST['prix']);
-          $fact = htmlentities($_POST['fact']);
-          $manuel = htmlentities($_POST['manuel']);
-          $zoneEntretien = htmlentities($_POST['zoneEntretien']);
-          $lieuAchat = htmlentities($_POST['lieuAchat']);
+          $id = htmlspecialchars($_GET['id']);
+          $name = htmlspecialchars($_POST['name']);
+          $ref = htmlspecialchars($_POST['ref']);
+          $category = htmlspecialchars($_POST['category']);
+          $dateAchat = htmlspecialchars($_POST['dateAchat']);
+          $dateGaranti = htmlspecialchars($_POST['dateGaranti']);
+          $prix = htmlspecialchars($_POST['prix']);
+          $fact = htmlspecialchars($_POST['fact']);
+          $manuel = htmlspecialchars($_POST['manuel']);
+          $zoneEntretien = htmlspecialchars($_POST['zoneEntretien']);
+          $lieuAchat = htmlspecialchars($_POST['lieuAchat']);
 
           $productAdd = New ModifyProduct($id, $name, $ref, $category, $dateAchat, $dateGaranti, $prix, $fact, $zoneEntretien, $lieuAchat, $manuel);
 
